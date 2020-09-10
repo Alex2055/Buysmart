@@ -1,5 +1,5 @@
 
-const  Product  = require('../models/product.js');
+const Product = require('../models/Product.js');
 
 const productdata = [
     {

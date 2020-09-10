@@ -9,36 +9,41 @@ Product.init(
             primaryKey: true,
             autoIncrement: true
         },
-        store_name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
+        //required field - would like to change to an array but need to figure out how...
         category: {
             type: DataTypes.STRING,
             allowNull: false
         },
+        //required field
         product_name: {
             type: DataTypes.STRING,
             allowNull: false
         },
-
-        notes: {
+        //optional field
+        description: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
 
         },
+        //optional field
         price: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
-        rank: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
+
+        //removing rank for now - maybe add later as separate model
+        // rank: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        // },
         
     },
     {
-        sequelize
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'product'
     }
         
 );
