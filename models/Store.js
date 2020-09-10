@@ -43,4 +43,4 @@ Store.init(
             modelName: 'store'
     });
 
-module.exports = { Store };
+module.exports = Store;
