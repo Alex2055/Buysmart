@@ -1,0 +1,17 @@
+<header>
+ <a class="logo" href="/home">Buy Smart</a>
+</header>
+<div class="product-body">
+    <h2>name/price/rank</h2>
+    <ul>
+        {{#each products}}
+            <h2 class="title-text" onclick="location.href='/product/{{id}}';" style="cursor: pointer;">
+                  {{product_name}}  ${{price}} ({{rank}} out of 5)
+            </h2>
+        {{/each}}
+    </ul>
+</div>
+<a class="link" href="/search-view/price" id="sortByPrice">sort by price</a>
+<br>
+<a class="link" href="/search-view/rank" id="sortByRank">sort by rank</a>
+<script src="/javascript/index.js"></script>
