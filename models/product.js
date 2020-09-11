@@ -1,5 +1,6 @@
-const sequelize = require('../config/connection');
 const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
+
 class Product extends Model {}
 
 Product.init(
@@ -35,7 +36,7 @@ Product.init(
         size: {
             type: DataTypes.STRING,
             allowNull: true,
-        }
+        },
 
         //should rating be included in product model? Or in a separate model and linked to user and product?
         rating: {
@@ -45,6 +46,7 @@ Product.init(
 
         user_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'
@@ -52,11 +54,14 @@ Product.init(
         },
         store_id: {
             type: DataTypes.INTEGER,
+            allowNull: true,
             references: {
                 model: 'store',
                 key: 'id'
             }
-       },
+       }
+    },
+    {
         sequelize,
         timestamps: false,
         freezeTableName: true,

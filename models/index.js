@@ -23,7 +23,7 @@ Store.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-Product.belongsToMany(Store, {
+Product.belongsTo(Store, {
     foreignKey: 'store_id'
 });
 
