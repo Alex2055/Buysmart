@@ -30,15 +30,18 @@ router.get('/', (req, res) => {
 //Display individual product by id
 router.get('/:id', (req, res) => {
     Product.findOne({
+        where: {
+            id: req.params.id
+        },
         attributes: [
             'id',
             'product_name',
-            'description',
-            'category',
-            'size',
-            'price',
+            // 'description',
+            // 'category',
+            // 'size',
+            // 'price',
             'rating'
-        ]
+        ],
         //commented out store references until store routes are complete
         // include: [
         //     {
@@ -46,7 +49,13 @@ router.get('/:id', (req, res) => {
         //     attributes: ['store_name', 'city', 'state'],
         //     }]
     })
-    .then(dbProductData => res.json(dbProductData))
+    .then(dbProductData => {
+        if(!dbProductData) {
+            res.status(404).json({ message: 'No product found with this id'});
+            return;
+         }
+         res.json(dbProductData);
+    })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);   
@@ -72,5 +81,44 @@ router.post('/', (req, res) => {
 });
 });
 
+//Update product
+router.put('/:id', (req, res) => {
+    Product.update(req.body, {
+            where: {
+               id: req.params.id 
+            }
+        }
+    )
+    .then(dbProductData => {
+        if(!dbProductData) {
+            res.status(404).json({ message: 'No product found with this id'});
+            return;
+         }
+         res.json(dbProductData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+router.delete('/:id', (req, res) => {
+    Product.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbProductData => {
+        if (!dbProductData) {
+            res.status(404).json({ message: 'No product found with this id' });
+            return;
+        }
+        res.json(dbProductData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 module.exports = router
