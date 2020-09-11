@@ -39,7 +39,8 @@ Product.init(
     },
     {
         sequelize
-    }
+    },
+    
         
 );
 module.exports = Product;
