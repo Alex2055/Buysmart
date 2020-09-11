@@ -31,21 +31,38 @@ Product.init(
             type: DataTypes.INTEGER,
             allowNull: true,
         },
+        //optional size for quantity/size qualifier
+        size: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        }
 
-        //removing rank for now - maybe add later as separate model
-        // rank: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        // },
-        
-    },
-    {
+        //should rating be included in product model? Or in a separate model and linked to user and product?
+        rating: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        },
+        store_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'store',
+                key: 'id'
+            }
+       },
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'product'
     }
-        
 );
+
 module.exports = Product;

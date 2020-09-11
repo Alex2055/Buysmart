@@ -16,11 +16,11 @@ Store.init(
             type: DataTypes.STRING,
             allowNull: false,
             },
-            //optional street address, no validation
-            street_address: {
-                type: DataTypes.STRING,
-                allowNull: true
-            },
+            // //optional street address, no validation - may not be necessary and cause too much trouble to be this specific
+            // street_address: {
+            //     type: DataTypes.STRING,
+            //     allowNull: true
+            // },
             //optional city - validation? Make all lowercase for consistency?
             city: {
                 type: DataTypes.STRING,
@@ -35,6 +35,13 @@ Store.init(
             zip: {
                 type: DataTypes.STRING,
                 allowNull: true
+            },
+            user_id: {
+                type: DataTypes.INTEGER,
+                references: {
+                    model: 'user',
+                    key: 'id'
+                }
             },
             sequelize,
             timestamps: false,
