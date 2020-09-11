@@ -1,6 +1,6 @@
 
-const Product = require('../models/Product.js');
-
+const  Product  = require('../models/product.js');
+const sequelize = require("../config/connection")
 const productdata = [
     {
         store_name: 'Walmart' ,
@@ -13,10 +13,10 @@ const productdata = [
     {
         store_name: 'Walmart' ,
         category: 'Coffee' ,
-        product_name: 'Starbaks' ,
+        product_name: 'Starbucks' ,
         notes: 'dark roast' ,
         price: 6 ,
-        rank: 3 ,
+        rank: 4 ,
     },
     {
         store_name: 'Walmart' ,
@@ -24,10 +24,15 @@ const productdata = [
         product_name: 'Pitts' ,
         notes: '7oz' ,
         price: 8 ,
-        rank: 4 ,
+        rank: 3 ,
     }
     
 ];
-
-Product.bulkCreate(productdata);
+const seedAll = async () => {
+    await sequelize.sync({ force: true });
+    console.log('--------------');
+    await Product.bulkCreate(productdata);
+    console.log('--------------');
+}
+seedAll();
 
