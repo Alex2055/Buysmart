@@ -1,8 +1,8 @@
 const signupFormHandler = async function(event) {
-    event.preventDefault();
-    const username = document.querySelector("#userName");
-    const password = document.querySelector("#passWord");
-    fetch("/api/user", {
+     event.preventDefault();
+     const email = document.querySelector("#email");
+     const password = document.querySelector("#passWord");
+    fetch("/api/users", {
         method: "post",
         body: JSON.stringify({
           email: email.value,
@@ -11,11 +11,11 @@ const signupFormHandler = async function(event) {
         headers: { "Content-Type": "application/json" }
       })
         .then(function() {
-          document.location.replace("/dashboard");
+          document.location.replace("/home");
         })
         .catch(err => console.log(err));
     };
 
     document
   .querySelector("#signupSubmit")
-  .addEventListener("submit", signupFormHandler);
+  .addEventListener("click", signupFormHandler);
