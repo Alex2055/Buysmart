@@ -1,22 +1,20 @@
 const router = require('express').Router();
 const Product = require('../models/product')
+const withAuth = require("../utils/auth");
 
 
 router.get('/', (req, res) => {
     res.redirect('/home');
   })
 
-router.get('/home', (req, res) => {
+router.get('/home', withAuth, (req, res) => {
 
     res.render('homepage');
 })
-router.get('/add-product', (req, res) => {
+router.get('/add-product', withAuth, (req, res) => {
 
     res.render('add-product');
 })
-
-
-
 router.get('/signin', (req, res) => {
 
     res.render('signin');
@@ -27,7 +25,7 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 })
 
-router.get('/search-view/:order?', (req, res) => {
+router.get('/search-view/:order?', withAuth, (req, res) => {
     Product.findAll({
      order: [
          [req.params.order || 'id', 'ASC']
