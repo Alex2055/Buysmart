@@ -1,11 +1,11 @@
-{{!-- <header>
- <a class="logo" href="/home">Buy Smart</a>
-</header> --}}
 <section>
 <ul class="product-list">
   <li>
+    {{#if product}}
       {{> product-info product }}
-      <button class="link" onclick="location.href=`/edit-product/{{product.id}}`">Edit product</button>
+      {{!-- <button href='/edit/{{product.id}}' class="edit-link">Edit product</button> --}}
+      <button class="link" onclick="window.location.href=`/edit/{{product.id}}`;">Edit product</button>
+  {{/if}}
   </li>
 </ul>
 </section>

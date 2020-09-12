@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Product = require('../models/product')
+const { User, Store, Product } = require('../models')
 const withAuth = require("../utils/auth");
 
 
@@ -13,12 +13,7 @@ router.get('/home',
 
     res.render('homepage');
 })
-router.get('/add-product', 
-// withAuth, 
-(req, res) => {
 
-    res.render('add-product');
-})
 router.get('/signin', (req, res) => {
 
     res.render('signin');
@@ -27,60 +22,43 @@ router.get('/signin', (req, res) => {
 router.get('/signup', (req, res) => {
 
     res.render('signup');
-})
-
-router.get('/search-view/:order?', 
-// withAuth, 
-(req, res) => {
-    Product.findAll({
-     order: [
-         [req.params.order || 'id', 'ASC']
-     ]
-
-    }).then(dbProductData => {
-        
-        const products = dbProductData.map(product => product.get());
-            res.render('search-view', { products });
-       
-    })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
 });
 
-router.get('/product/:id', 
-// withAuth, 
+
+router.get('/edit/:id', 
+//withAuth,
 (req, res) => {
     Product.findOne({
-    where: {
-        id: req.params.id
-    },
-    attributes: [
-        'id',
-        'product_name',
-        'description',
-        'category',
-        'size',
-        'price',
-        'rating'
-    ],
-    // include: [
-    //     {
-    //     model: Store,
-    //     attributes: ['store_name', 'city', 'state'],
-    //     }]
-    }).then(dbProductData => {
-        
-        const product = dbProductData.get({ plain: true});
-            res.render('single-product', { product });
+        where: {
+            id: req.params.id
+        },
+        attributes: [
+            'product_name',
+            'category',
+            'description',
+            'size',
+            'price',
+            'rating'
+        ],
+        include: [
+            {
+                model: Store,
+                attributes: ['id']
+            }
+        ]
+    })
+    .then(dbProductData =>  {
+        if(!dbProductData) {
+            res.status(404).json({ message: 'No product found with this id'});
+            return;
+         }
+         const product = dbProductData.get({ plain: true});
+            res.render('edit-product', { product });
            })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
-
-
 
 module.exports = router;
