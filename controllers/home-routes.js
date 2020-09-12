@@ -49,6 +49,38 @@ router.get('/search-view/:order?',
         });
 });
 
+router.get('/product/:id', 
+// withAuth, 
+(req, res) => {
+    Product.findOne({
+    where: {
+        id: req.params.id
+    },
+    attributes: [
+        'id',
+        'product_name',
+        'description',
+        'category',
+        'size',
+        'price',
+        'rating'
+    ],
+    // include: [
+    //     {
+    //     model: Store,
+    //     attributes: ['store_name', 'city', 'state'],
+    //     }]
+    }).then(dbProductData => {
+        
+        const product = dbProductData.get({ plain: true});
+            res.render('single-product', { product });
+           })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 
 
 module.exports = router;

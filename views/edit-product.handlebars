@@ -1,0 +1,33 @@
+<section>
+    <h2>Edit product</h2>
+
+<form class="edit-product-form">
+    <label for="product-name">Product Name</label>
+    <input type="text" id="product-name" name="product-name" value="{{product.product_name}}" />
+    {{!-- change to picking from pre-formatted options --}}
+    <label for="product-category">Category</label>
+    <input type="text" id="product-category" name="product-category" value="{{product.category}}" />
+    <label for="description">Description</label>
+    <input type="text" id="description" name="description" value="{{product.description}}" />
+    <label for="size">Size</label>
+    <input type="text" id="size" name="size" value="{{product.size}}" />
+    <label for="price">Price</label>
+    <input type="number" id="price" name="price" value="{{product.price}}" />
+    <label for="rating">Rating</label>
+    <input type="number" id="rating" name="rating" value="{{rating}}" />
+    {{!-- temporary user_id field until login function works --}}
+
+    {{!-- <label for="user-id">User Id</label>
+    <input type="number" id="user-id" name="user-id" /> --}}
+    {{!-- change to selecting from existing stores with option to add a new store --}}
+    {{!-- <label for="store">Store</label>
+    <input type="text" id="store" name="store"/> --}}
+<label for="store-id">Store ID</label>
+<input type="number" id="store-id" name="store-id" value="{{product.store_id}}" />
+
+     <button type="submit" class="btn">Update</button>
+</form>
+
+</section>  
+
+<script src='javascript/editProduct.js'></script>
