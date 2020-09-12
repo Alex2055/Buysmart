@@ -35,10 +35,10 @@ router.get('/:id', (req, res) => {
         attributes: [
             'id',
             'product_name',
-            // 'description',
-            // 'category',
-            // 'size',
-            // 'price',
+            'description',
+            'category',
+            'size',
+            'price',
             'rating'
         ],
         include: [
