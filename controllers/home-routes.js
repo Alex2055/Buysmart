@@ -7,7 +7,9 @@ router.get('/', (req, res) => {
     res.redirect('/home');
   })
 
-router.get('/home', withAuth, (req, res) => {
+router.get('/home', 
+// withAuth, 
+(req, res) => {
 
     res.render('homepage');
 })
@@ -27,7 +29,9 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 })
 
-router.get('/search-view/:order?', withAuth, (req, res) => {
+router.get('/search-view/:order?', 
+// withAuth, 
+(req, res) => {
     Product.findAll({
      order: [
          [req.params.order || 'id', 'ASC']
