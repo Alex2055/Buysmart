@@ -12,7 +12,7 @@ Store.init(
         autoIncrement: true
         },
         //required store name - convert to an array with option to add new name?
-        name: {
+        store_name: {
             type: DataTypes.STRING,
             allowNull: false,
             },

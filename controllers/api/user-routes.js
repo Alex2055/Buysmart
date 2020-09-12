@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Product, Store } = require('../../models');
 
 //get all users
 router.get('/', (req, res) => {
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
     });
 });
 
-//get single user
+//get single user, with that user's saved products and associated store
 router.get('/:id', (req, res) => {
     User.findOne({
         attributes: {
@@ -22,6 +22,16 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
+        include: [
+            {
+            model: Product,
+            order: [['rating', 'DESC']],
+            attributes: ['product_name', 'category', 'size', 'price', 'rating'],
+            include: {
+                model: Store,
+                attributes: ['store_name', 'city', 'state', 'zip']
+            }
+            }]
     })
     .then(dbUserData => {
         if(!dbUserData) {

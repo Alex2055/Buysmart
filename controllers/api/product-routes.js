@@ -11,14 +11,13 @@ router.get('/', (req, res) => {
             'category',
             'price',
             'rating'
+        ],
+        include: [
+            {
+                model: Store,
+                attributes: ['store_name']
+            }
         ]
-        //commented out store references until store routes are complete
-        // include: [
-        //     {
-        //         model: Store,
-        //         attributes: ['store_name']
-        //     }
-        // ]
     })
     .then(dbProductData => res.json(dbProductData))
     .catch(err => {
@@ -42,12 +41,11 @@ router.get('/:id', (req, res) => {
             // 'price',
             'rating'
         ],
-        //commented out store references until store routes are complete
-        // include: [
-        //     {
-        //     model: Store,
-        //     attributes: ['store_name', 'city', 'state'],
-        //     }]
+        include: [
+            {
+            model: Store,
+            attributes: ['store_name', 'city', 'state'],
+            }]
     })
     .then(dbProductData => {
         if(!dbProductData) {
