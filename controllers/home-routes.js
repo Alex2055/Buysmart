@@ -11,7 +11,9 @@ router.get('/home', withAuth, (req, res) => {
 
     res.render('homepage');
 })
-router.get('/add-product', withAuth, (req, res) => {
+router.get('/add-product', 
+// withAuth, 
+(req, res) => {
 
     res.render('add-product');
 })
