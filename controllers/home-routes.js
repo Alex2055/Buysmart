@@ -7,7 +7,9 @@ router.get('/', (req, res) => {
     res.redirect('/home');
   })
 
-router.get('/home', withAuth, (req, res) => {
+router.get('/home', 
+// withAuth, 
+(req, res) => {
 
     res.render('homepage');
 })
@@ -27,7 +29,29 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 })
 
-router.get('/search-view/:order?', withAuth, (req, res) => {
+router.get('/edit-product/:id', (req, res) => {
+    Product.findOne({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbProductData => {
+        if(!dbProductData) {
+            res.status(404).json({ message: 'No product found with this id' });
+            return;
+        }
+        const product = dbProductData.get({ plain: true });
+        res.render('edit-product', { product, loggedIn: true });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+});
+
+router.get('/search-view/:order?', 
+// withAuth, 
+(req, res) => {
     Product.findAll({
      order: [
          [req.params.order || 'id', 'ASC']
@@ -39,6 +63,38 @@ router.get('/search-view/:order?', withAuth, (req, res) => {
             res.render('search-view', { products });
        
     })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+router.get('/product/:id', 
+// withAuth, 
+(req, res) => {
+    Product.findOne({
+    where: {
+        id: req.params.id
+    },
+    attributes: [
+        'id',
+        'product_name',
+        'description',
+        'category',
+        'size',
+        'price',
+        'rating'
+    ],
+    // include: [
+    //     {
+    //     model: Store,
+    //     attributes: ['store_name', 'city', 'state'],
+    //     }]
+    }).then(dbProductData => {
+        
+        const product = dbProductData.get({ plain: true});
+            res.render('single-product', { product });
+           })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);

@@ -30,3 +30,11 @@ header {
     text-decoration: none;
 }
 
+form label {
+    display: block;
+}
+
+ul {
+    list-style-type: none;
+}
+
