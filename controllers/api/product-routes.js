@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const { Product, Store } = require('../../models');
+const { Product, Store, User } = require('../../models');
+const withAuth = require('../../utils/auth');
+const sequelize = require('../../config/connection');
 
 //Display all products in order by rating
 router.get('/', (req, res) => {
@@ -61,7 +63,9 @@ router.get('/:id', (req, res) => {
 });
 
 //Add a new product
-router.post('/', (req, res) => {
+router.post('/', 
+withAuth, 
+(req, res) => {
     Product.create({
         product_name: req.body.product_name,
         category: req.body.category,
@@ -69,7 +73,7 @@ router.post('/', (req, res) => {
         price: req.body.price,
         size: req.body.size,
         rating: req.body.rating,
-        user_id: req.body.user_id,
+        user_id: req.session.userId,
         store_id: req.body.store_id 
 }) 
 .then(dbProductData => res.json(dbProductData))
