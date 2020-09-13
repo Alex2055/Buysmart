@@ -1,12 +1,22 @@
 const router = require('express').Router();
 const { User, Store, Product } = require('../models')
 const withAuth = require("../utils/auth");
+const sequelize = require('../config/connection');
 
 router.get('/add', 
  withAuth, 
 (req, res) => {
-
+//     Product.create({      
+//     })
+// .then(dbProductData => {
+    // const products = dbProductData.map(product => product.get());
+    //         res.render('search-view', { products });
     res.render('add-product');
+// })
+// .catch(err => {
+//     console.log(err);
+//     res.status(500).json(err);
+// })
 });
 
 router.get('/:order?', 
