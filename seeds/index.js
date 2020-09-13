@@ -153,9 +153,38 @@ const userData = [
         password: "1234abcd"
     },
     {
-        email: "user@user.com",
+        email: "user1@user.com",
+        password: "userpw123"
+    },
+    {
+        email: "user2@user.com",
+        password: "userpw123"
+    },
+    {
+        email: "user3@user.com",
+        password: "userpw123"
+    },
+    {
+        email: "user4@user.com",
+        password: "userpw123"
+    },
+    {
+        email: "user5@user.com",
+        password: "userpw123"
+    },
+    {
+        email: "user6@user.com",
+        password: "userpw123"
+    },
+    {
+        email: "user7@user.com",
+        password: "userpw123"
+    },
+    {
+        email: "user8@user.com",
         password: "userpw123"
     }
+
 ];
 
 const storeData = [
