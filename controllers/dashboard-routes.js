@@ -3,14 +3,14 @@ const { User, Store, Product } = require('../models')
 const withAuth = require("../utils/auth");
 
 router.get('/add', 
-// withAuth, 
+ withAuth, 
 (req, res) => {
 
     res.render('add-product');
 });
 
 router.get('/:order?', 
-// withAuth, 
+ withAuth, 
 (req, res) => {
     Product.findAll({
      order: [
@@ -31,7 +31,7 @@ router.get('/:order?',
 
 
 router.get('/view/:id', 
-// withAuth, 
+ withAuth, 
 (req, res) => {
     Product.findOne({
     where: {

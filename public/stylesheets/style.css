@@ -1,10 +1,10 @@
-body{
+/* body{
     background-color: moccasin;
     position: absolute;
     width: 100%;
     padding: 0;
     margin: 0;
-}
+} */
 header {
     background-color: aqua;
     width: 100%;
@@ -20,15 +20,14 @@ header {
      top: 5px;
     font-size: 24pt;
     text-decoration: none;
-    color: tomato;
 }
 
-.link{
+/* .link{
     position: relative;
     top: 10px;
     font-size: 20pt;
     text-decoration: none;
-}
+} */
 
 form label {
     display: block;
