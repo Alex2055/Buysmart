@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   })
 
 router.get('/home', 
-// withAuth, 
+ withAuth, 
 (req, res) => {
 
     res.render('homepage');
@@ -26,7 +26,7 @@ router.get('/signup', (req, res) => {
 
 
 router.get('/edit/:id', 
-//withAuth,
+withAuth,
 (req, res) => {
     Product.findOne({
         where: {
