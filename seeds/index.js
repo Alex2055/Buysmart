@@ -1,4 +1,5 @@
 
+const bcrypt = require('bcrypt');
 const { Product, User, Store }  = require('../models');
 const sequelize = require("../config/connection")
 const productData = [
@@ -38,11 +39,11 @@ const productData = [
 const userData = [
     {
         email: "test@test.com",
-        password: "1234abcd"
+        password: bcrypt.hashSync("1234abcd", 16)
     },
     {
         email: "user@user.com",
-        password: "userpw123"
+        password: bcrypt.hashSync("userpw123", 16)
     }
 ];
 
@@ -80,4 +81,5 @@ const seedAll = async () => {
     console.log('--------------');
 }
 seedAll();
+
 

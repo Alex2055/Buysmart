@@ -53,7 +53,7 @@ withAuth,
             return;
          }
          const product = dbProductData.get({ plain: true});
-            res.render('edit-product', { product });
+            res.render('edit-product', { product }, );
            })
     .catch(err => {
         console.log(err);
