@@ -19,31 +19,34 @@
     
     <label for="store-id">Store</label>
     <select id="store-id" name="store-id">
-        <option value='new'>Add new store</option>
+        {{!-- <option value='new'>Add new store</option> --}}
         <option value='test'>Test option</option>
-        {{#each stores}}
+        {{#each this}}
         <option value={{stores.id}}>{{stores.store_name}}</option>
         {{/each}}
     </select>
-    {{!-- change to selecting from existing stores with option to add a new store --}}
-    {{!-- <label for="store">Store</label>
-    <input type="text" id="store" name="store"/> --}}
-{{!-- <label for="store-id">Store ID</label>
-<input type="number" id="store-id" name="store-id" /> --}}
+    <a href='#add-store' data-rel="popup">Add a new store</a>
+    <div data-role="popup" id="add-store">
+        <h3>Add Store</h3>
+    <form class="add-store-form">
+        <label for="store-name">Store Name:</label>
+        <input type="text" name="store-name" id="store-name" />
+        <label for="city">City:</label>
+        <input type="text" name="city" id="city" />
+        <label for="state">State:</label>
+        <input type="text" name="state" id="state" />
+        <label for="zip">Zip code:</label>
+        <input type="text" name="zip" id="zip" />
+        <button type="submit" class="btn">Add Store</button>
+    </form>
+</div>
 
      <button type="submit" class="btn">Create</button>
 </form>
-<p>
-this is text copy - does this show up?
-   {{#each this}}
-   <li>
-       User ID: {{user.id}} = User Email: {{user.email}}
-       Store ID: {{stores.id}} - Store Name: {{stores.store_name}} 
-    </li>
 
-        {{/each}}
-</p>
 </section>  
 
-<script src='/javascript/addProduct.js'></script>
 
+
+<script src='/javascript/addProduct.js'></script>
+<script src='/javascript/addStore.js'></script>
