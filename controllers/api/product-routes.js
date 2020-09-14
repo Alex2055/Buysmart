@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Product, Store, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
+const { raw } = require('express');
 
 //Display all products in order by rating
 router.get('/', (req, res) => {
@@ -27,6 +28,24 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
         })
 });
+
+router.get('/filtered', async (req, res) =>{
+    const store_id = req.query.store_id;
+    const category = req.query.category;
+    const conditions = {};
+    if (store_id){
+        conditions.store_id = store_id;
+    }
+    if (category){
+        conditions.category = category;
+    }
+    const products = await Product.findAll({
+        where: conditions,
+        order: [['rating','DESC']],
+        raw: true
+    });
+    res.json(products)
+    });
 
 //Display individual product by id
 router.get('/:id', (req, res) => {
@@ -122,5 +141,7 @@ router.delete('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+
 
 module.exports = router
