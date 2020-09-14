@@ -151,73 +151,41 @@ const userData = [
     {
         email: "test@test.com",
         password: "1234abcd"
-    },
-    {
-        email: "user1@user.com",
-        password: "userpw123"
-    },
-    {
-        email: "user2@user.com",
-        password: "userpw123"
-    },
-    {
-        email: "user3@user.com",
-        password: "userpw123"
-    },
-    {
-        email: "user4@user.com",
-        password: "userpw123"
-    },
-    {
-        email: "user5@user.com",
-        password: "userpw123"
-    },
-    {
-        email: "user6@user.com",
-        password: "userpw123"
-    },
-    {
-        email: "user7@user.com",
-        password: "userpw123"
-    },
-    {
-        email: "user8@user.com",
-        password: "userpw123"
     }
 
 ];
 
 const storeData = [
     {
-     store_name: "Wal-Mart",
+     store_name: "Wal-Mart Nashville",
      city: "Nashville",
      state: "TN",
      zip: 37209,
      user_id: 1   
     },
     {
-    store_name: "Kroger",
+    store_name: "Kroger Nashville",
     city: "Nashville",
     state: "TN",
     zip: 37221,
     user_id: 1
     },
     {
-        store_name: "Publix",
+        store_name: "Publix Nashville",
         city: "Nashville",
         state: "TN",
         zip: 37205,
         user_id: 2
     },
     {
-        store_name: "Kroger",
+        store_name: "Kroger Cookeville",
         city: "Cookeville",
         state: "TN",
         zip: 38501,
         user_id: 1
     },
     {
-        store_name: "Publix",
+        store_name: "Publix Cookeville",
         city: "Cookeville",
         state: "TN",
         zip: 38501,
