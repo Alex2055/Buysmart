@@ -32,7 +32,119 @@ const productData = [
         rating: 3 ,
         user_id: 1,
         store_id: 2
+    },
+    {
+        category: 'Deli' ,
+        product_name: 'Private Selection™ Old World Deli Hard Salami' ,
+        description: 'Meat' ,
+        size: '32 oz',
+        price: 14.99 ,
+        rating: 1 ,
+        user_id: 1,
+        store_id: 1
+    },
+    {
+        category: 'Deli' ,
+        product_name: 'Private Selection™ Wildflower Honey Ham' ,
+        description: 'Meat' ,
+        size: '1 lb',
+        price: 8.29 ,
+        rating: 2 ,
+        user_id: 1,
+        store_id: 1
+    },
+    {
+        category: 'Deli' ,
+        product_name: 'Boars Head Hickory Smoked Black Forest Turkey Breast' ,
+        description: 'Turkey Breast' ,
+        size: '1 lb',
+        price: 10.99 ,
+        rating: 1 ,
+        user_id: 1,
+        store_id: 1 
+    },
+    {
+        category: 'Produce' ,
+        product_name: 'Banana' ,
+        description: 'Fruit' ,
+        size: '1 lb',
+        price: 0.49 ,
+        rating: 2 ,
+        user_id: 1,
+        store_id: 1
+    },
+    {
+        category: 'Produce' ,
+        product_name: 'Strawberries' ,
+        description: 'Fruit' ,
+        size: '1 lb',
+        price:  2.50,
+        rating:  1,
+        user_id: 1,
+        store_id: 1
+    },
+    {
+        category: 'Produce' ,
+        product_name: 'Lettuce - Iceberg' ,
+        description: 'Vegetable' ,
+        size: '1 ct',
+        price: 1.39 ,
+        rating: 1 ,
+        user_id: 1,
+        store_id: 1 
+    },
+    {
+        category: 'Produce' ,
+        product_name: 'Kroger® Cut & Peeled Baby Carrots' ,
+        description: 'Vegetable' ,
+        size: '1 lb',
+        price: 1.00 ,
+        rating: 2 ,
+        user_id: 1,
+        store_id: 1 
+    },
+    {
+        category: 'Produce' ,
+        product_name: 'Red Bell Pepper' ,
+        description: 'Vegetable' ,
+        size: '1 ct',
+        price: 1.69 ,
+        rating: 2 ,
+        user_id: 1,
+        store_id: 1
+    },
+    {
+        category: 'Deli' ,
+        product_name: 'Publix Deli Salami, Hard' ,
+        description: 'Meat' ,
+        size: '32 oz',
+        price: 15.98 ,
+        rating: 2 ,
+        user_id: 2,
+        store_id: 2 
+    },
+    {
+        category: 'Deli' ,
+        product_name: 'Boars Head Maple Glazed Honey Coat® Ham' ,
+        description: 'Meat' ,
+        size: '1 lb',
+        price: 11.99 ,
+        rating:  2,
+        user_id: 2,
+        store_id: 2
+    },
+    {
+        category: 'Deli' ,
+        product_name: 'Publix Deli Smoked Turkey Breast' ,
+        description: 'Meat' ,
+        size: '1 lb',
+        price: 8.99 ,
+        rating:  1,
+        user_id: 2,
+        store_id: 2
     }
+
+
     
 ];
 
@@ -44,7 +156,36 @@ const userData = [
     {
         email: "user@user.com",
         password: bcrypt.hashSync("userpw123", 16)
+    },
+    {
+        email: "user2@user.com",
+        password: "userpw123"
+    },
+    {
+        email: "user3@user.com",
+        password: "userpw123"
+    },
+    {
+        email: "user4@user.com",
+        password: "userpw123"
+    },
+    {
+        email: "user5@user.com",
+        password: "userpw123"
+    },
+    {
+        email: "user6@user.com",
+        password: "userpw123"
+    },
+    {
+        email: "user7@user.com",
+        password: "userpw123"
+    },
+    {
+        email: "user8@user.com",
+        password: "userpw123"
     }
+
 ];
 
 const storeData = [
@@ -68,7 +209,22 @@ const storeData = [
         state: "TN",
         zip: 37205,
         user_id: 2
-    }
+    },
+    {
+        store_name: "Kroger",
+        city: "Cookeville",
+        state: "TN",
+        zip: 38501,
+        user_id: 1
+    },
+    {
+        store_name: "Publix",
+        city: "Cookeville",
+        state: "TN",
+        zip: 38501,
+        user_id: 2
+    },
+
 ]
 const seedAll = async () => {
     await sequelize.sync({ force: true });
