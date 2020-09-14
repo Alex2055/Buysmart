@@ -18,7 +18,13 @@
     <input type="number" id="rating" name="rating" />
     
     <label for="store-id">Store</label>
-    <input type="select" id="store-id" name="store-id"
+    <select id="store-id" name="store-id">
+        <option value='new'>Add new store</option>
+        <option value='test'>Test option</option>
+        {{#each stores}}
+        <option value={{stores.id}}>{{stores.store_name}}</option>
+        {{/each}}
+    </select>
     {{!-- change to selecting from existing stores with option to add a new store --}}
     {{!-- <label for="store">Store</label>
     <input type="text" id="store" name="store"/> --}}
@@ -27,7 +33,16 @@
 
      <button type="submit" class="btn">Create</button>
 </form>
+<p>
+this is text copy - does this show up?
+   {{#each this}}
+   <li>
+       User ID: {{user.id}} = User Email: {{user.email}}
+       Store ID: {{stores.id}} - Store Name: {{stores.store_name}} 
+    </li>
 
+        {{/each}}
+</p>
 </section>  
 
 <script src='/javascript/addProduct.js'></script>

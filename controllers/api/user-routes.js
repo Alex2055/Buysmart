@@ -31,7 +31,10 @@ router.get('/:id', (req, res) => {
             include: {
                 model: Store,
                 attributes: ['store_name', 'city', 'state', 'zip']
-            }
+            }},
+            {
+                    model: Store,
+                    attributes: ['store_name', 'city', 'state', 'zip']
             }]
     })
     .then(dbUserData => {
