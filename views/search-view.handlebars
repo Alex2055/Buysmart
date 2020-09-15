@@ -20,8 +20,8 @@
     <h2>name/price/rank</h2>
     <ul id="productsOnLoad">
         {{#each products}}
-            <li class="title-text" onclick="window.location.href='/product/view/{{id}}';" style="cursor: pointer;">
-                  {{product_name}}  ${{price}} ({{rating}} out of 5)
+            <li class="title-text">
+            <a href="/product/view/{{id}}">{{product_name}}  ${{price}} ({{rating}} out of 5)</a>  
             </li>
         {{/each}}
     </ul>

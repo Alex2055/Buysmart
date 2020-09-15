@@ -22,14 +22,18 @@ const showStoreResults = async function (event) {
 
     for (let u = 0; u < products.length; u++) {
         let node = document.createElement('LI');
+        let nodea = document.createElement('A');
         let textnode = document.createTextNode(
             products[u].product_name + " " + "$" + products[u].price + " " + "(" + products[u].rating + "out of 5)"
         )
+
         node.classList.add("title-text");
-        node.appendChild(textnode);
+        nodea.href='/product/view/'+products[u].id;
+        nodea.appendChild(textnode);
+        node.appendChild(nodea)
         document.getElementById("productsOnLoad").appendChild(node);
     };
-
+    
 }
 
 document.querySelector('#storeNames').addEventListener('change', showStoreResults);
@@ -49,19 +53,21 @@ let storeQuery;
     let categoryName = event.target.value
     let response = await fetch('/api/products/filtered?category=' + categoryName+storeQuery);
     let products = await response.json();
-    var x = await document.getElementsByClassName("title-text");
-    for (let i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
+    var x = await document.getElementById('productsOnLoad');
+    x.innerHTML = "";
+    
 
     for (let u = 0; u < products.length; u++) {
         let node = document.createElement('LI');
+        let nodea = document.createElement('A');
         let textnode = document.createTextNode(
             products[u].product_name + " " + "$" + products[u].price + " " + "(" + products[u].rating + "out of 5)"
         )
         node.classList.add("title-text");
-        node.appendChild(textnode);
-        document.getElementById("productsOnLoad").appendChild(node);
+        nodea.href='/product/view/'+products[u].id;
+        nodea.appendChild(textnode);
+        node.appendChild(nodea)
+        x.appendChild(node);
     };
 
 }
