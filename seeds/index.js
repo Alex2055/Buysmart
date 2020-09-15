@@ -1,7 +1,7 @@
 
-const bcrypt = require('bcrypt');
 const { Product, User, Store }  = require('../models');
 const sequelize = require("../config/connection")
+const bcrypt = require('bcrypt')
 const productData = [
     {
         category: 'Coffee' ,
@@ -20,7 +20,7 @@ const productData = [
         size: '1 lb',
         price: 6 ,
         rating: 4 ,
-        user_id: 2,
+        user_id: 1,
         store_id: 1
     },
     {
@@ -120,7 +120,7 @@ const productData = [
         size: '32 oz',
         price: 15.98 ,
         rating: 2 ,
-        user_id: 2,
+        user_id: 1,
         store_id: 2 
     },
     {
@@ -130,7 +130,7 @@ const productData = [
         size: '1 lb',
         price: 11.99 ,
         rating:  2,
-        user_id: 2,
+        user_id: 1,
         store_id: 2
     },
     {
@@ -140,7 +140,7 @@ const productData = [
         size: '1 lb',
         price: 8.99 ,
         rating:  1,
-        user_id: 2,
+        user_id: 1,
         store_id: 2
     }
 
@@ -152,77 +152,45 @@ const userData = [
     {
         email: "test@test.com",
         password: bcrypt.hashSync("1234abcd", 16)
-    },
-    {
-        email: "user@user.com",
-        password: bcrypt.hashSync("userpw123", 16)
-    },
-    {
-        email: "user2@user.com",
-        password: "userpw123"
-    },
-    {
-        email: "user3@user.com",
-        password: "userpw123"
-    },
-    {
-        email: "user4@user.com",
-        password: "userpw123"
-    },
-    {
-        email: "user5@user.com",
-        password: "userpw123"
-    },
-    {
-        email: "user6@user.com",
-        password: "userpw123"
-    },
-    {
-        email: "user7@user.com",
-        password: "userpw123"
-    },
-    {
-        email: "user8@user.com",
-        password: "userpw123"
     }
 
 ];
 
 const storeData = [
     {
-     store_name: "Wal-Mart",
+     store_name: "Wal-Mart Nashville",
      city: "Nashville",
      state: "TN",
      zip: 37209,
      user_id: 1   
     },
     {
-    store_name: "Kroger",
+    store_name: "Kroger Nashville",
     city: "Nashville",
     state: "TN",
     zip: 37221,
     user_id: 1
     },
     {
-        store_name: "Publix",
+        store_name: "Publix Nashville",
         city: "Nashville",
         state: "TN",
         zip: 37205,
-        user_id: 2
+        user_id: 1
     },
     {
-        store_name: "Kroger",
+        store_name: "Kroger Cookeville",
         city: "Cookeville",
         state: "TN",
         zip: 38501,
         user_id: 1
     },
     {
-        store_name: "Publix",
+        store_name: "Publix Cookeville",
         city: "Cookeville",
         state: "TN",
         zip: 38501,
-        user_id: 2
+        user_id: 1
     },
 
 ]

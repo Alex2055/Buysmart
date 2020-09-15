@@ -38,6 +38,7 @@ ul {
 }
 .title-text{
     font-size: 20pt;
+    cursor: pointer;
 }
 
 h2 {
