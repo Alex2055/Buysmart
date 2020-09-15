@@ -1,6 +1,7 @@
 
 const { Product, User, Store }  = require('../models');
 const sequelize = require("../config/connection")
+const bcrypt = require('bcrypt')
 const productData = [
     {
         category: 'Coffee' ,
@@ -19,7 +20,7 @@ const productData = [
         size: '1 lb',
         price: 6 ,
         rating: 4 ,
-        user_id: 2,
+        user_id: 1,
         store_id: 1
     },
     {
@@ -119,7 +120,7 @@ const productData = [
         size: '32 oz',
         price: 15.98 ,
         rating: 2 ,
-        user_id: 2,
+        user_id: 1,
         store_id: 2 
     },
     {
@@ -129,7 +130,7 @@ const productData = [
         size: '1 lb',
         price: 11.99 ,
         rating:  2,
-        user_id: 2,
+        user_id: 1,
         store_id: 2
     },
     {
@@ -139,7 +140,7 @@ const productData = [
         size: '1 lb',
         price: 8.99 ,
         rating:  1,
-        user_id: 2,
+        user_id: 1,
         store_id: 2
     }
 
@@ -150,7 +151,7 @@ const productData = [
 const userData = [
     {
         email: "test@test.com",
-        password: "1234abcd"
+        password: bcrypt.hashSync("1234abcd", 16)
     }
 
 ];
@@ -175,7 +176,7 @@ const storeData = [
         city: "Nashville",
         state: "TN",
         zip: 37205,
-        user_id: 2
+        user_id: 1
     },
     {
         store_name: "Kroger Cookeville",
@@ -189,7 +190,7 @@ const storeData = [
         city: "Cookeville",
         state: "TN",
         zip: 38501,
-        user_id: 2
+        user_id: 1
     },
 
 ]
