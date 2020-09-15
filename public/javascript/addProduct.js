@@ -7,11 +7,7 @@ async function newFormHandler(event) {
     const size = document.querySelector('input[name="size"]').value;
     const price = document.querySelector('input[name="price"]').value;
     const rating = document.querySelector('input[name="rating"]').value;
-    //temporary user-id field until log-in function is complete
-    // const user_id = document.querySelector('input[name="user-id"]').value;
-    // const store = document.querySelector('input[name="store"]').value;
-    //temporary store_id field
-    // const store_id = document.querySelector('input[name="store-id"]').value;
+    const store_id = document.querySelector('select[name="store-id"]').value;
 
     const response = await fetch(`/api/products`, {
         method: 'POST',
@@ -21,10 +17,8 @@ async function newFormHandler(event) {
           description,
           size,
           price,
-          rating
-          // user_id
-          // store_id
-        //   store
+          rating,
+          store_id
         }),
         headers: {
           'Content-Type': 'application/json'
@@ -34,7 +28,7 @@ async function newFormHandler(event) {
       if (response.ok) {
           console.log("Product added");
           console.log(response);
-        // document.location.replace('/search-view');
+        document.location.replace('/product/view');
       } else {
           console.log("product not added");
         alert(response.statusText);

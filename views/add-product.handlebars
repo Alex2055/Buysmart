@@ -16,19 +16,20 @@
     <input type="number" id="price" name="price" />
     <label for="rating">Rating</label>
     <input type="number" id="rating" name="rating" />
-    
     <label for="store-id">Store</label>
-    <select id="store-id" name="store-id">
-        {{!-- <option value='new'>Add new store</option> --}}
-        <option value='test'>Test option</option>
-        {{#each this}}
-        <option value={{stores.id}}>{{stores.store_name}}</option>
-        {{/each}}
+       <select id="store-id" name="store-id">
+    <option value=" ">Select a store</option>
+    {{#each stores}}
+      <option value="{{id}}">{{store_name}}</option>
+    {{/each}}
     </select>
-    <a href='#add-store' data-rel="popup">Add a new store</a>
-    <div data-role="popup" id="add-store">
+    
+   <a href='#add-store' data-rel="popup">Add a new store</a>
+     <button type="submit" class="btn">Create</button>
+</form>
+    <div data-role="popup" id="add-store" class="add-store">
         <h3>Add Store</h3>
-    <form class="add-store-form">
+    <form class="add-store-form" id="add-store-form">
         <label for="store-name">Store Name:</label>
         <input type="text" name="store-name" id="store-name" />
         <label for="city">City:</label>
@@ -37,16 +38,10 @@
         <input type="text" name="state" id="state" />
         <label for="zip">Zip code:</label>
         <input type="text" name="zip" id="zip" />
-        <button type="submit" class="btn">Add Store</button>
+        <button type="submit" class="btn" id="add-store-btn">Add Store</button>
     </form>
-</div>
-
-     <button type="submit" class="btn">Create</button>
-</form>
-
+    </div>
 </section>  
-
-
 
 <script src='/javascript/addProduct.js'></script>
 <script src='/javascript/addStore.js'></script>

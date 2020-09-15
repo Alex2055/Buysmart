@@ -6,20 +6,19 @@ async function newFormHandler(event) {
     const state = document.querySelector('input[name="state"]').value;
     const zip = document.querySelector('input[name="zip"]').value;
 
-    const response = await fetch(`/api/stores`, {
+    const response = await fetch('/api/stores', {
         method: 'POST',
         body: JSON.stringify({
           store_name,
           city,
           state,
-          zip,
-          user_id
+          zip
         }),
         headers: {
           'Content-Type': 'application/json'
         }
       });
-      
+      console.log(response);
       if (response.ok) {
           console.log("Store added");
           console.log(response);

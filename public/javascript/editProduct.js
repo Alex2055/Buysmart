@@ -14,7 +14,7 @@ async function newFormHandler(event) {
     // const user_id = document.querySelector('input[name="user-id"]').value;
     // const store = document.querySelector('input[name="store"]').value;
     //temporary store_id field
-    const store_id = document.querySelector('input[name="store-id"]').value;
+    const store_id = document.querySelector('input[name="stores.id"]').value;
 
     const response = await fetch(`/api/products/${id}`, {
         method: 'PUT',

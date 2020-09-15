@@ -34,7 +34,7 @@ router.get('/:id', (req, res) => {
             }},
             {
                     model: Store,
-                    attributes: ['store_name', 'city', 'state', 'zip']
+                    attributes: ['id', 'store_name', 'city', 'state', 'zip']
             }]
     })
     .then(dbUserData => {
