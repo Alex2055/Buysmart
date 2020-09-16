@@ -13,6 +13,7 @@ header {
     left: 0;
     top: 0;
     border-bottom: solid blue 2px;
+    padding-bottom: 5%;
 }
 .logo{
     position: relative;
@@ -42,14 +43,35 @@ ul {
 }
 
 h2 {
-    padding-left: 4%;
+    padding: 0 4%;
 }
 
 label {
-    padding-left: 4%;
+    padding: 0 4%;
 }
 
 a {
-    padding-left: 4%;
+    padding: 0 4%;
 }
+
+.ui-grid-b:before {
+    background-color: #005599;
+}
+
+.ui-navbar {
+    margin-top: 5%;
+}
+
+.homepage {
+    padding-top: 10%;
+}
+
+.add-product,
+.edit-product {
+    padding: 5%;
+}
+
+/* button {
+    width: 80%;
+} */
 

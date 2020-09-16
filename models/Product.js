@@ -29,7 +29,7 @@ Product.init(
         },
         //optional field
         price: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DECIMAL(10,2),
             allowNull: true,
         },
         //optional size for quantity/size qualifier
@@ -42,6 +42,11 @@ Product.init(
         rating: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            validate: {
+                min: 0,
+                max: 5,
+                msg: 'Please enter a rating between 0 and 5.'
+            }
         },
 
         user_id: {

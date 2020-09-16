@@ -34,7 +34,7 @@ router.get('/:order?',
             },
             limit: 20,
             order: [
-                [req.params.order || 'rating', 'ASC']
+                [req.params.order || 'rating', 'DESC']
             ],
             raw: true
         });

@@ -1,8 +1,17 @@
 
-<section>
+<section class="add-product">
     <h2>Add new product</h2>
 
 <form class="add-product-form">
+      <label for="store-id">Store</label> <a href='#add-store' data-rel="popup">Add a new store</a>
+       <select id="store-id" name="store-id">
+    <option value=" ">Select a store</option>
+    {{#each stores}}
+        {{!-- {{> store-options stores}} --}}
+      <option value="{{id}}">{{store_name}}</option>
+    {{/each}}
+    </select>
+  
     <label for="product-name">Product Name</label>
     <input type="text" id="product-name" name="product-name" />
     <label for="product-category">Category</label>
@@ -12,19 +21,12 @@
     <label for="size">Size</label>
     <input type="text" id="size" name="size" />
     <label for="price">Price</label>
-    <input type="number" id="price" name="price" />
+    {{!-- <div class="ui-input-decimal ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" id="size" name="size"> --}}
+    <input type="decimal" id="price" name="price" />
+    {{!-- </div> --}}
     <label for="rating">Rating</label>
     <input type="number" id="rating" name="rating" />
-    <label for="store-id">Store</label>
-       <select id="store-id" name="store-id">
-    <option value=" ">Select a store</option>
-    {{#each stores}}
-        {{!-- {{> store-options stores}} --}}
-      <option value="{{id}}">{{store_name}}</option>
-    {{/each}}
-    </select>
-
-   <a href='#add-store' data-rel="popup">Add a new store</a>
+  
      <button type="submit" class="btn">Create</button>
 </form>
     <div data-role="popup" id="add-store" class="add-store">
