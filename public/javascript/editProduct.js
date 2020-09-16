@@ -10,11 +10,6 @@ async function newFormHandler(event) {
     const size = document.querySelector('input[name="size"]').value;
     const price = document.querySelector('input[name="price"]').value;
     const rating = document.querySelector('input[name="rating"]').value;
-    //temporary user-id field until log-in function is complete
-    // const user_id = document.querySelector('input[name="user-id"]').value;
-    // const store = document.querySelector('input[name="store"]').value;
-    //temporary store_id field
-    const store_id = document.querySelector('input[name="store-id"]').value;
 
     const response = await fetch(`/api/products/${id}`, {
         method: 'PUT',
@@ -24,9 +19,7 @@ async function newFormHandler(event) {
           description,
           size,
           price,
-          rating,
-          store_id
-        //   store
+          rating
         }),
         headers: {
           'Content-Type': 'application/json'

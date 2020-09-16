@@ -13,6 +13,7 @@ header {
     left: 0;
     top: 0;
     border-bottom: solid blue 2px;
+    padding-bottom: 5%;
 }
 .logo{
     /* position: relative;
@@ -46,7 +47,6 @@ ul {
 .checked {
     color: orange;
   }
-
 #signout{
     float: right;
     font-size: 20pt;
@@ -55,3 +55,36 @@ ul {
     cursor: pointer;
     
 }
+h2 {
+    padding: 0 4%;
+}
+
+label {
+    padding: 0 4%;
+}
+
+a {
+    padding: 0 4%;
+}
+
+.ui-grid-b:before {
+    background-color: #005599;
+}
+
+.ui-navbar {
+    margin-top: 5%;
+}
+
+.homepage {
+    padding-top: 10%;
+}
+
+.add-product,
+.edit-product {
+    padding: 5%;
+}
+
+/* button {
+    width: 80%;
+} */
+

@@ -22,6 +22,14 @@
         <div>
         <a class="link" id="signout">Sign out</a>
         </div>
+        <div data-role="navbar">
+  <ul>
+      {{!-- <li class="link" onclick="location.href='/product';">View Products</li> --}}
+    {{!--<li><a href="/product/add">Add Product</a></li>--}}
+    {{!--<li><a href='/product'>View Products</a></li>--}}
+    {{!-- <li><a href="#signout">Sign out</a></li> --}}
+  </ul>
+</div>
     </header>
     {{{body}}}
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -29,16 +37,13 @@
     <script>
         $(function () {
 
-            $.mobile.ajaxEnabled = false;
-
+            $.mobile.ajaxEnabled = false
             
-
             $.mobile.hashListeningEnabled = false;
 
-            $.mobile.pushStateEnabled = false;
-        });
-    </script>
+            $.mobile.pushStateEnabled = false;})
 
+            </script>
 </body>
 
 </html>
