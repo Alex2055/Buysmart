@@ -141,7 +141,7 @@ const productData = [
         price: 8.99 ,
         rating:  1,
         user_id: 1,
-        store_id: 2
+        store_id: 3
     }
 
 
@@ -158,40 +158,27 @@ const userData = [
 
 const storeData = [
     {
-     store_name: "Wal-Mart Nashville",
+     store_name: "Wal-Mart",
      city: "Nashville",
      state: "TN",
      zip: 37209,
      user_id: 1   
     },
     {
-    store_name: "Kroger Nashville",
+    store_name: "Kroger",
     city: "Nashville",
     state: "TN",
     zip: 37221,
     user_id: 1
     },
     {
-        store_name: "Publix Nashville",
+        store_name: "Publix",
         city: "Nashville",
         state: "TN",
         zip: 37205,
         user_id: 1
     },
-    {
-        store_name: "Kroger Cookeville",
-        city: "Cookeville",
-        state: "TN",
-        zip: 38501,
-        user_id: 1
-    },
-    {
-        store_name: "Publix Cookeville",
-        city: "Cookeville",
-        state: "TN",
-        zip: 38501,
-        user_id: 1
-    },
+    
 
 ]
 const seedAll = async () => {

@@ -1,75 +1,65 @@
-let category = "";
-let store = 0;
-const showStoreResults = async function (event) {
-    store = event.target.value;
-    let categoryQuery;
-    if(category === ""){
-        categoryQuery = "";
-    }
-    else{
-        categoryQuery = "&category="+category;
-    }
-    
-    
+
+const showResults = async function (event) {
    
-    let storeId = event.target.value
-    let response = await fetch('/api/products/filtered?store_id=' + storeId+categoryQuery);
-    let products = await response.json();
-    var x = await document.getElementsByClassName("title-text");
-    for (let i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
+    let storeId = document.getElementById('storeNames').value;
+    let category = document.getElementById('categoryNames').value;
+
+    let queryString = '';
+    if (storeId){
+        queryString = "store_id=" + storeId;
+    }
+    if(category){
+        if(queryString){
+            queryString = queryString + "&";
+        }
+        queryString = queryString + "category=" + category;
     }
 
-    for (let u = 0; u < products.length; u++) {
-        let node = document.createElement('LI');
-        let nodea = document.createElement('A');
-        let textnode = document.createTextNode(
-            products[u].product_name + " " + "$" + products[u].price + " " + "(" + products[u].rating + "out of 5)"
-        )
+    let response = await fetch('/api/products/filtered?'+ queryString);
+    let products = await response.json();
 
-        node.classList.add("title-text");
+    var x = await document.getElementById('productsOnLoad');
+    x.innerHTML = "";
+    for (let u = 0; u < products.length; u++) {
+        let nodediv = document.createElement('DIV')
+        let node = document.createElement('TR');
+        let nodea = document.createElement('A');
+        let nodeone = document.createElement('TD');
+        let nodetwo = document.createElement('TD');
+        let textnodeone = document.createTextNode(products[u].product_name );
+        let textnodetwo = document.createTextNode("$" + products[u].price);
+
+        
+
+
+        
+        
         nodea.href='/product/view/'+products[u].id;
-        nodea.appendChild(textnode);
-        node.appendChild(nodea)
+        nodea.appendChild(textnodeone);
+        nodeone.appendChild(nodea);
+        node.appendChild(nodeone);
+        nodetwo.appendChild(textnodetwo);
+         node.appendChild(nodetwo);
+        nodeone.appendChild(nodediv);
+
+        for(let i = 0; i<5; i++){
+            let nodespan = document.createElement('SPAN');
+            nodespan.classList.add('fa' );
+            nodespan.classList.add('fa-star');
+            if(products[u].rating>i){
+                nodespan.classList.add('checked');
+            }
+            nodediv.appendChild(nodespan);
+            }
+        
         document.getElementById("productsOnLoad").appendChild(node);
     };
     
 }
 
-document.querySelector('#storeNames').addEventListener('change', showStoreResults);
+document.querySelector('#storeNames').addEventListener('change', showResults);
+document.querySelector('#categoryNames').addEventListener('change', showResults);
 
 
 
-const showCategoryResults = async function (event) {
-let storeQuery;
-    if(store === 0){
-        storeQuery = "";
-    }
-    else{
-    storeQuery = "&store_id="+store;
-    }
-    
-    category = event.target.value;
-    let categoryName = event.target.value
-    let response = await fetch('/api/products/filtered?category=' + categoryName+storeQuery);
-    let products = await response.json();
-    var x = await document.getElementById('productsOnLoad');
-    x.innerHTML = "";
-    
 
-    for (let u = 0; u < products.length; u++) {
-        let node = document.createElement('LI');
-        let nodea = document.createElement('A');
-        let textnode = document.createTextNode(
-            products[u].product_name + " " + "$" + products[u].price + " " + "(" + products[u].rating + "out of 5)"
-        )
-        node.classList.add("title-text");
-        nodea.href='/product/view/'+products[u].id;
-        nodea.appendChild(textnode);
-        node.appendChild(nodea)
-        x.appendChild(node);
-    };
-
-}
-
-document.querySelector('#categoryNames').addEventListener('change', showCategoryResults);

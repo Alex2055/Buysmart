@@ -28,7 +28,7 @@ router.get('/:order?',
             },
             limit: 20,
             order: [
-                [req.params.order || 'rating', 'ASC']
+                [req.params.order || 'rating', 'DESC']
             ],
             raw: true
         });
@@ -45,10 +45,25 @@ router.get('/:order?',
                 user_id: req.session.userId
             },
             raw: true
-
         });
+
+        for (let i = 0; i < products.length; i++) {
+            let stars = [];
+            for (let u = 0; u < 5; u++) {
+                if (u < products[i].rating) {
+                    stars.push(true);
+                }
+                else {
+                    stars.push(false);
+                }
+            }
+            products[i].stars = stars;
+        };
         
-        res.render('search-view', { products, categories, stores })
+
+
+
+        res.render('search-view', { products, categories, stores})
     });
 
 

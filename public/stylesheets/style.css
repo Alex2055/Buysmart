@@ -1,10 +1,10 @@
-/* body{
-    background-color: moccasin;
+ /* body{
+    background-image: url("../stylesheets/images/backg.jpg") ;
     position: absolute;
     width: 100%;
     padding: 0;
     margin: 0;
-} */
+}  */
 header {
     background-color: aqua;
     width: 100%;
@@ -15,11 +15,14 @@ header {
     border-bottom: solid blue 2px;
 }
 .logo{
-    position: relative;
+    /* position: relative;
      left: 20px;
-     top: 5px;
+     top: 5px; */
+     float: left;
     font-size: 24pt;
     text-decoration: none;
+    margin-left: 20px ;
+    margin-top: 5px;
 }
 
 /* .link{
@@ -40,4 +43,15 @@ ul {
     font-size: 20pt;
     cursor: pointer;
 }
+.checked {
+    color: orange;
+  }
 
+#signout{
+    float: right;
+    font-size: 20pt;
+    margin-right: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    
+}

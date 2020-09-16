@@ -29,7 +29,7 @@ Product.init(
         },
         //optional field
         price: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DECIMAL(10,2),
             allowNull: true,
         },
         //optional size for quantity/size qualifier
