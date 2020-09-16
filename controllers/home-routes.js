@@ -24,7 +24,6 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-
 router.get('/edit/:id', 
 withAuth,
 (req, res) => {
@@ -39,12 +38,6 @@ withAuth,
             'size',
             'price',
             'rating'
-        ],
-        include: [
-            {
-                model: Store,
-                attributes: ['id']
-            }
         ]
     })
     .then(dbProductData =>  {

@@ -17,11 +17,11 @@
         {{/each}}
     </select>
     </fieldset>
-    <h2>name/price/rank</h2>
+    <h2>Current Products</h2>
     <ul id="productsOnLoad">
         {{#each products}}
             <li class="title-text">
-            <a href="/product/view/{{id}}">{{product_name}}  ${{price}} ({{rating}} out of 5)</a>  
+            <a href="/product/view/{{id}}"><h2>{{product_name}}</h2>  <h3>${{price}} ({{rating}} out of 5)</h3></a>  
             </li>
         {{/each}}
     </ul>

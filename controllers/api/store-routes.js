@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { Product, Store } = require('../../models');
+const withAuth = require('../../utils/auth');
+const sequelize = require('../../config/connection');
 
 //Display all stores
 router.get('/', (req, res) => {
@@ -12,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 //Display one store with associated products in descending order based on rating
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
     Store.findOne({
         where: {
             id: req.params.id
@@ -37,13 +39,13 @@ router.get('/:id', (req, res) => {
 });
    
 //Add new store
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Store.create({
         store_name: req.body.store_name,
         city: req.body.city,
         state: req.body.state,
         zip: req.body.zip,
-        user_id: req.body.user_id
+        user_id: req.session.userId
         })
     .then(dbStoreData => res.json(dbStoreData))
     .catch(err => {
@@ -54,7 +56,7 @@ router.post('/', (req, res) => {
 
 
 //Update store
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Store.update(req.body, {
         where: {
             id: req.params.id
@@ -74,7 +76,7 @@ router.put('/:id', (req, res) => {
 });
 
 //Delete store
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
 Store.destroy({
     where: {
         id: req.params.id

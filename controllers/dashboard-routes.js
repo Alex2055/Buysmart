@@ -5,19 +5,25 @@ const sequelize = require('../config/connection');
 
 router.get('/add',
     withAuth,
-    (req, res) => {
-        //     Product.create({      
-        //     })
-        // .then(dbProductData => {
-        // const products = dbProductData.map(product => product.get());
-        //         res.render('search-view', { products });
-        res.render('add-product');
-        // })
-        // .catch(err => {
-        //     console.log(err);
-        //     res.status(500).json(err);
-        // })
-    });
+    async (req, res) => { 
+        await Store.findAll({ 
+        where: {
+            user_id: req.session.userId
+        },
+        attributes: ['id', 'store_name', 'city', 'state', 'zip'],
+        raw: true,
+    })
+        .then(dbStoreData => {
+            const stores = dbStoreData;
+        res.render('add-product', { stores })
+        })
+    .catch(err => {
+        if(err)  {
+            console.log(err);
+                res.status(500).json(err);
+        }
+    })
+});
 
 router.get('/:order?',
     withAuth,
@@ -28,7 +34,7 @@ router.get('/:order?',
             },
             limit: 20,
             order: [
-                [req.params.order || 'rating', 'ASC']
+                [req.params.order || 'rating', 'DESC']
             ],
             raw: true
         });
@@ -50,8 +56,6 @@ router.get('/:order?',
         
         res.render('search-view', { products, categories, stores })
     });
-
-
 
 
 router.get('/view/:id',
