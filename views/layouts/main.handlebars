@@ -16,12 +16,17 @@
 
 <body>
     <header>
+        <div>
         <a class="logo" href="/home">Buy Smart</a>
+        </div>
+        <div>
+        <a class="link" id="signout">Sign out</a>
+        </div>
         <div data-role="navbar">
   <ul>
       {{!-- <li class="link" onclick="location.href='/product';">View Products</li> --}}
-    <li><a href="/product/add">Add Product</a></li>
-    <li><a href='/product'>View Products</a></li>
+    {{!--<li><a href="/product/add">Add Product</a></li>--}}
+    {{!--<li><a href='/product'>View Products</a></li>--}}
     {{!-- <li><a href="#signout">Sign out</a></li> --}}
   </ul>
 </div>
@@ -32,8 +37,8 @@
     <script>
         $(function () {
 
-            $.mobile.ajaxEnabled = false;
-
+            $.mobile.ajaxEnabled = false
+            
             $.mobile.hashListeningEnabled = false;
 
             $.mobile.pushStateEnabled = false;})

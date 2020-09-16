@@ -1,34 +1,48 @@
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="product-body">
-    
-    <fieldset data-role="controlgroup" data-type="vertical">
-    <label for="storeNames">Stores</label>
-    <select id="storeNames">
-    <option value="">Select Store</option>
-        {{#each stores}}
-        <option value="{{id}}">{{store_name}}</option>
-        {{/each}} 
-    </select>
-<label for="categoryNames">Categories</label>
-    <select id="categoryNames">
-        <option value="">Select Category</option>
-        {{#each categories}}
-        <option value="{{category}}">{{category}}</option>
-        {{/each}}
-    </select>
-    </fieldset>
-    <h2>Current Products</h2>
-    <ul id="productsOnLoad">
-        {{#each products}}
-            <li class="title-text">
-            <a href="/product/view/{{id}}"><h2>{{product_name}}</h2>  <h3>${{price}} ({{rating}} out of 5)</h3></a>  
-            </li>
-        {{/each}}
-    </ul>
-    <div class="container"></div>
-</div>
-{{!-- <a class="link" href="/product/price" id="sortByPrice">sort by price</a>
-<br>
-<a class="link" href="/product/rank" id="sortByRank">sort by rank</a> --}}
-<script src="/javascript/search_results.js"></script>
 
+    <fieldset data-role="controlgroup" data-type="vertical">
+        <label for="storeNames">Stores</label>
+        <select id="storeNames">
+            <option value="">Select Store</option>
+            {{#each stores}}
+            <option value="{{id}}">{{store_name}}</option>
+            {{/each}}
+        </select>
+        <label for="categoryNames">Categories</label>
+        <select id="categoryNames">
+            <option value="">Select Category</option>
+            {{#each categories}}
+            <option value="{{category}}">{{category}}</option>
+            {{/each}}
+        </select>
+    </fieldset>
+    {{!-- <h2 class="ui-bar-d">name/price/rank</h2> --}}
+    <table data-role="table" id="table-column-toggle" data-mode="columntoggle"
+        class="ui-body-b ui-shadow table-stripe ui-responsive">
+        <thead>
+            <tr class="ui-bar-d">
+            <th>Name</th>
+            <th>Price</th>
+            </tr>
+        </thead>
+        <tbody id="productsOnLoad">
+
+            {{#each products}}
+            <tr>
+                <td>
+                    <a href="/product/view/{{id}}"> {{product_name}} </a>
+                    <div>
+                        {{#each stars}}
+                        <span class="fa fa-star {{#if this}} checked {{/if}}"></span>
+                        {{/each}}
+                    </div>
+                </td>
+                <td data-priority="2">${{price}}</td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+</div>
+<script src="/javascript/search_results.js"></script>
