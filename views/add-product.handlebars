@@ -1,11 +1,10 @@
 
 <section>
-    <h2>Add product here</h2>
+    <h2>Add new product</h2>
 
 <form class="add-product-form">
     <label for="product-name">Product Name</label>
     <input type="text" id="product-name" name="product-name" />
-    {{!-- change to picking from pre-formatted options --}}
     <label for="product-category">Category</label>
     <input type="text" id="product-category" name="product-category" />
     <label for="description">Description</label>
@@ -20,10 +19,11 @@
        <select id="store-id" name="store-id">
     <option value=" ">Select a store</option>
     {{#each stores}}
+        {{!-- {{> store-options stores}} --}}
       <option value="{{id}}">{{store_name}}</option>
     {{/each}}
     </select>
-    
+
    <a href='#add-store' data-rel="popup">Add a new store</a>
      <button type="submit" class="btn">Create</button>
 </form>

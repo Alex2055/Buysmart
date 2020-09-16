@@ -22,7 +22,7 @@ async function newFormHandler(event) {
       if (response.ok) {
           console.log("Store added");
           console.log(response);
-        // document.location.replace('/search-view');
+        document.location.reload();
       } else {
           console.log("Store not added");
         alert(response.statusText);
