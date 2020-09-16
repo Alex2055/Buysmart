@@ -1,10 +1,8 @@
-<section>
-<ul class="product-list">
-  <li>
+<section class="product-list">
     {{#if product}}
       {{> product-info product }}
      <button class="link" onclick="window.location.href=`/edit/{{product.id}}`;">Edit product</button>
   {{/if}}
-  </li>
-</ul>
+  <button class="link" onclick="window.location.href=`/edit/{{product.id}}`;">Edit product</button>
+  <button class="link" onclick="window.location.href=`/product`;">Back to veiw </button>
 </section>

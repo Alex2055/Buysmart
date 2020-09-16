@@ -122,3 +122,12 @@ color: black;
 .hide {
     display: none;
 }
+
+.product-body{
+    position: relative;
+}
+#productInfo{
+    
+    position: relative;
+  margin-left: 0;
+}

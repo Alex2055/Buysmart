@@ -5,7 +5,7 @@ async function newFormHandler(event) {
     const category = document.querySelector('input[name="product-category"]').value;
     const description = document.querySelector('input[name="description"]').value;
     const size = document.querySelector('input[name="size"]').value;
-    const price = document.querySelector('input[name="price"]').value;
+    const price = document.querySelector('input[name="price"]').value.toString();
     const rating = document.querySelector('input[name="rating"]').value;
     const store_id = document.querySelector('select[name="store-id"]').value;
 

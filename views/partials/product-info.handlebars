@@ -1,54 +1,43 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="product-body" onload="addStars">
-        <h2>{{product_name}}</h2>
-        <div class="stars"></span>
-    <table data-role="table" class="ui-body-b ui-shadow table-stripe ui-responsive">
+    <h2>{{product_name}}</h2>
+    <div>
+        {{#each stars}}
+        <span class="fa fa-star {{#if this}} checked {{/if}}"></span>
+        {{/each}}
+    </div>
+    <table id="productInfo" data-role="table" class="ui-body-b ui-shadow table-stripe ui-responsive">
         <thead>
             <tr class="ui-bar-d">
-            <th>About</th>
-            <th>Price</th>
-            <th>Store</th>
+                <th>About</th>
+                <th>Price</th>
+                <th>Store</th>
             </tr>
         </thead>
         <tbody>
             <div>
                 <tr>
                     <td>
-                    <h3>Category: {{category}}</h3>
-                    <p>About: {{description}}</p>
-                    <p>Size: {{size}}</p>
-                </td>
-                <td>
-                    <h3>${{price}}</h3>
-                </td>
-                <td>
-                    <h3>{{store.store_name}}</h3>
-                    <p>{{store.city}}, {{store.state}} {{store.zip}}</p>
-                </td>
+                        <h3>Category: {{category}}</h3>
+                        <p>About: {{description}}</p>
+                        <p>Size: {{size}}</p>
+                    </td>
+                    <td>
+                        <h3>${{price}}</h3>
+                    </td>
+                    <td>
+                        <h3>{{store.store_name}}</h3>
+                        <p>{{store.city}}, {{store.state}} {{store.zip}}</p>
+                    </td>
                 </tr>
             </div>
-            </tbody>
-            </table>
+        </tbody>
+    </table>
 
-            <span class="product-rating hide">{{rating}}</span>
+    <span class="product-rating hide">{{rating}}</span>
 
 
-    <script>
 
-        const addStars = async function(event) {
-                let stars = document.querySelector(".product-rating");
-                let rating-location = document.querySelector(".stars");
-                let nodespan = document.createElement('SPAN');
-            nodespan.classList.add('fa' );
-            nodespan.classList.add('fa-star');
-                for(let i = 0; i<5; i++){
-                if(stars>i){
-                nodespan.classList.add('checked');
-            }
-            rating-location.appendChild(nodespan);
-            }
-        }
-        {{!-- document.onload(addStars); --}}
-    </script>
 
 
     {{!-- <script src="/javascript/search_results.js"></script> --}}

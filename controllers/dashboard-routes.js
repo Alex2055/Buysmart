@@ -100,7 +100,21 @@ router.get('/view/:id',
                 return;
             }
 
+            
+                
+
             const product = dbProductData.get({ plain: true });
+            let stars = [];
+                for (let u = 0; u < 5; u++) {
+                    if (u < product.rating) {
+                        stars.push(true);
+                    }
+                    else {
+                        stars.push(false);
+                    }
+                
+                product.stars = stars;
+            };
             res.render('single-product', { product });
         })
             .catch(err => {
