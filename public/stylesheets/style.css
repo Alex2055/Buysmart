@@ -127,7 +127,8 @@ color: black;
     position: relative;
 }
 #productInfo{
-    
+    border-radius: 5px;
     position: relative;
   margin-left: 0;
 }
+
