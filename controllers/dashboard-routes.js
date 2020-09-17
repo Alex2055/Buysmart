@@ -1,30 +1,31 @@
 const router = require('express').Router();
-const { User, Store, Product } = require('../models')
+const { Store, Product } = require('../models')
 const withAuth = require("../utils/auth");
-const sequelize = require('../config/connection');
+
 
 router.get('/add',
     withAuth,
-    async (req, res) => { 
-        await Store.findAll({ 
-        where: {
-            user_id: req.session.userId
-        },
-        attributes: ['id', 'store_name', 'city', 'state', 'zip'],
-        raw: true,
-    })
-        .then(dbStoreData => {
-            const stores = dbStoreData;
-        res.render('add-product', { stores })
+    async (req, res) => {
+        await Store.findAll({
+            where: {
+                user_id: req.session.userId
+            },
+            attributes: ['id', 'store_name', 'city', 'state', 'zip'],
+            raw: true,
         })
-    .catch(err => {
-        if(err)  {
-            console.log(err);
-                res.status(500).json(err);
-        }
-    })
-});
+            .then(dbStoreData => {
+                const stores = dbStoreData;
+                res.render('add-product', { stores })
+            })
+            .catch(err => {
+                if (err) {
+                    console.log(err);
+                    res.status(500).json(err);
+                }
+            })
+    });
 
+// show products for slected store and/or category 
 router.get('/:order?',
     withAuth,
     async (req, res) => {
@@ -53,6 +54,7 @@ router.get('/:order?',
             raw: true
         });
 
+        //rating stars
         for (let i = 0; i < products.length; i++) {
             let stars = [];
             for (let u = 0; u < 5; u++) {
@@ -65,14 +67,11 @@ router.get('/:order?',
             }
             products[i].stars = stars;
         };
-        
 
-
-
-        res.render('search-view', { products, categories, stores})
+        res.render('search-view', { products, categories, stores })
     });
 
-
+//one product by id
 router.get('/view/:id',
     withAuth,
     (req, res) => {
@@ -99,20 +98,17 @@ router.get('/view/:id',
                 res.status(404).json({ message: 'No product found.' });
                 return;
             }
-
-            
-                
-
+//rating stars for this product
             const product = dbProductData.get({ plain: true });
             let stars = [];
-                for (let u = 0; u < 5; u++) {
-                    if (u < product.rating) {
-                        stars.push(true);
-                    }
-                    else {
-                        stars.push(false);
-                    }
-                
+            for (let u = 0; u < 5; u++) {
+                if (u < product.rating) {
+                    stars.push(true);
+                }
+                else {
+                    stars.push(false);
+                }
+
                 product.stars = stars;
             };
             res.render('single-product', { product });

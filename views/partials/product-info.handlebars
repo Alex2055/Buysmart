@@ -1,43 +1,58 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="product-body" onload="addStars">
-    <h2>{{product_name}}</h2>
-    <div>
-        {{#each stars}}
-        <span class="fa fa-star {{#if this}} checked {{/if}}"></span>
-        {{/each}}
-    </div>
-    <table id="productInfo" data-role="table" class="ui-body-b ui-shadow table-stripe ui-responsive">
-        <thead>
-            <tr class="ui-bar-d">
-                <th>About</th>
-                <th>Price</th>
-                <th>Store</th>
-            </tr>
-        </thead>
-        <tbody>
-            <div>
-                <tr>
-                    <td>
-                        <h3>Category: {{category}}</h3>
-                        <p>About: {{description}}</p>
-                        <p>Size: {{size}}</p>
-                    </td>
+{{!-- <div class="product-body" onload="addStars"> --}}
+<div class=" product-body " onload="addStars">
+    <h3 class="ui-bar ui-bar-a ui-corner-all">{{product_name}}
+        {{category}}
+        <div>
+            {{#each stars}}
+            <span class="fa fa-star {{#if this}} checked {{/if}}"></span>
+            {{/each}}
+        </div>
+    </h3>
+
+    {{!-- </div><!-- /grid-c --> --}}
+    <div class="ui-body ui-body-a ui-corner-all">
+        <table id="productInfo" data-role="table" data-mode="columntoggle"
+            class="ui-body-b ui-shadow table-stripe ui-responsive">
+            <thead>
+                <tr class="ui-bar-d">
+                    <th>About</th>
+                    <th>Store</th>
+                </tr>
+            </thead>
+            <tbody>
+                <div>
+                    <tr>
+                        <td>
+                            <p>{{description}}</p>
+                        </td>
+                        <td><h3>{{store.store_name}}</h3></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Size: {{size}}</p>
+                        </td>
+                        <td>
+                            <p>{{store.city}} </p>
+                            
+                        </td>
+                    </tr>
                     <td>
                         <h3>${{price}}</h3>
                     </td>
                     <td>
-                        <h3>{{store.store_name}}</h3>
-                        <p>{{store.city}}, {{store.state}} {{store.zip}}</p>
+                        {{store.state}} {{store.zip}}
                     </td>
-                </tr>
-            </div>
-        </tbody>
-    </table>
-
-    <span class="product-rating hide">{{rating}}</span>
-
-
-
+                    </tr>
+                </div>
+            </tbody>
+        </table>
+    </div>
+</div>
+<span class="product-rating hide">{{rating}}</span>
 
 
-    {{!-- <script src="/javascript/search_results.js"></script> --}}
+
+
+
+{{!-- <script src="/javascript/search_results.js"></script> --}}

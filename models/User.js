@@ -28,13 +28,13 @@ User.init(
         }
     },
 
-    //password must be string, at least 8 characters - would like to require alphanumeric - also explore adding messages explaining requirements
+    // optional password must be string, at least 8 characters - would like to require alphanumeric - also explore adding messages explaining requirements
     password: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-            len: [8]
-        }
+        // validate: {
+        //     len: [8]
+        // }
     }
     },
     {
