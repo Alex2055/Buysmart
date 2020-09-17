@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { Product, Store } = require('../../models');
 const withAuth = require('../../utils/auth');
-const sequelize = require('../../config/connection');
 
 //Display all stores
 router.get('/', (req, res) => {
