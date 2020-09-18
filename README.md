@@ -35,3 +35,4 @@ https://
 ## Release Notes
 * Version 1 is an MVP with basic functionality. 
 ## Screenshots
+![Overview of Buy Smart](/buysmart/public/stylesheets/images/screenshot.jpg)
