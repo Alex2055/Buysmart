@@ -64,10 +64,10 @@ a {
 
 #addProduct {
     height: 20vw;
-    width: 35vw;
+    width: 34vw;
     text-align: center;
     left: 10px;
-    background-image: url("../stylesheets/images/search.jpg");
+    background-image: url("../stylesheets/images/add.png");
     border-radius: 5%;
     background-size: cover;
     color: black;
@@ -75,7 +75,7 @@ a {
 
 #product {
     height: 20vw;
-    width: 35vw;
+    width: 34vw;
     text-align: center;
     float: right;
     border-radius: 5%;
