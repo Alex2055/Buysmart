@@ -11,14 +11,7 @@ header {
     padding-bottom: 5%;
 }
 
-.logo {
-    float: left;
-    font-size: 24pt;
-    text-decoration: none;
-    margin-left: 10px;
-    margin-top: 20px;
-    font-family: "Comic Sans MS";
-}
+
 
 form label {
     display: block;
@@ -37,17 +30,7 @@ ul {
     color: orange;
 }
 
-/* signout button */
 
-#signout {
-    float: right;
-    font-size: 16pt;
-    margin-right: 20px;
-    margin-top: 30px;
-    cursor: pointer;
-    color: black;
-    font-family: "Comic Sans MS";
-}
 
 h2 {
     padding: 0 4%;
@@ -80,8 +63,9 @@ a {
 /* add product page style */
 
 #addProduct {
-    height: 100px;
-    width: 35%;
+    height: 20vw;
+    width: 35vw;
+    text-align: center;
     left: 10px;
     background-image: url("../stylesheets/images/search.jpg");
     border-radius: 5%;
@@ -90,8 +74,9 @@ a {
 }
 
 #product {
-    height: 100px;
-    width: 35%;
+    height: 20vw;
+    width: 35vw;
+    text-align: center;
     float: right;
     border-radius: 5%;
     background-image: url("../stylesheets/images/drop.png");
@@ -121,3 +106,52 @@ a {
     position: relative;
     margin-left: 0;
 }
+
+/* /* If the screen size is 801px wide or more  */
+@media screen and (min-width: 801px) {
+    .logo {
+        float: left;
+        font-size: 5vw;
+        text-decoration: none;
+        margin-left: 20px;
+        margin-top: 20px;
+        font-family: "Comic Sans MS";
+    }
+    
+    /* signout button */
+    
+    #signout {
+        float: right;
+        font-size: 4vw;
+        margin-right: 20px;
+        margin-top: 30px;
+        cursor: pointer;
+        color: black;
+        font-family: "Comic Sans MS";
+    }
+  }
+  
+  /* /* If the screen size is 800px wide or less */
+  @media screen and (max-width: 800px) {
+    .logo {
+        float: left;
+        font-size: 8vw;
+        text-decoration: none;
+        margin-left: 10px;
+        margin-top: 10px;
+        font-family: "Comic Sans MS";
+    }
+    
+    /* signout button */
+    
+    #signout {
+        float: right;
+        font-size: 6vw;
+        margin-right: 20px;
+        margin-top: 20px;
+        cursor: pointer;
+        color: black;
+        font-family: "Comic Sans MS";
+    }
+  
+  }
