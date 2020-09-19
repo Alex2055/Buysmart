@@ -51,7 +51,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
                 res.render('edit-product', { product },);
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
                 res.status(500).json(err);
             });
     });
