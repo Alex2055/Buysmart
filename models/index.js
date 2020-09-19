@@ -1,6 +1,7 @@
 const User = require ('./User');
 const Product = require ('./Product');
 const Store = require ('./Store');
+const Category = require ('./Category');
 
 //create associations
 User.hasMany(Product, {
@@ -27,4 +28,20 @@ Product.belongsTo(Store, {
     foreignKey: 'store_id'
 });
 
-module.exports = { User, Product, Store };
+Product.belongsTo(Category, {
+    foreignKey: 'category_id'
+});
+
+Category.hasMany(Product, {
+    foreignKey: 'category_id'
+});
+
+User.hasMany(Category, {
+    foreignKey: 'user_id'
+});
+
+Category.belongsTo(User, {
+    foreignKey: 'user_id'
+});
+
+module.exports = { User, Product, Store, Category };

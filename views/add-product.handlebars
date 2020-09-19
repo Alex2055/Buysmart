@@ -9,11 +9,17 @@
             <option value="{{id}}">{{store_name}}</option>
             {{/each}}
         </select>
-
+        <label for="category-id">Category</label> <a href='#add-category' data-rel="popup">Add a new category</a>
+        <select id="category-id" name="category-id">
+            <option value=" ">Select a category</option>
+            {{#each categories}}
+            <option value="{{id}}">{{category_name}}</option>
+            {{/each}}
+        </select>
         <label for="product-name">Product Name</label>
         <input type="text" id="product-name" name="product-name" />
-        <label for="product-category">Category</label>
-        <input type="text" id="product-category" name="product-category" />
+        {{!-- <label for="product-category">Category</label>
+        <input type="text" id="product-category" name="product-category" /> --}}
         <label for="description">Description</label>
         <input type="text" id="description" name="description" />
         <label for="size">Size</label>
@@ -39,8 +45,17 @@
             <button type="submit" class="btn" id="add-store-btn">Add Store</button>
         </form>
     </div>
+    <div data-role="popup" id="add-category" class="add-category">
+        <h3>Add Category</h3>
+        <form class="add-category-form" id="add-category-form">
+            <label for="category-name">Category Name:</label>
+            <input type="text" name="category-name" id="category-name" />
+             <button type="submit" class="btn" id="add-category-btn">Add Category</button>
+            </form>
+            </div>
     <button onclick="location.href='/product'">Search/View</button>
 </section>
 
 <script src='/javascript/addProduct.js'></script>
 <script src='/javascript/addStore.js'></script>
+<script src='/javascript/addCategory.js'></script>

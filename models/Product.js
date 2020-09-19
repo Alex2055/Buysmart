@@ -11,10 +11,14 @@ Product.init(
             primaryKey: true,
             autoIncrement: true
         },
-        //required field - would like to change to an array but need to figure out how...
-        category: {
-            type: DataTypes.STRING,
-            allowNull: false
+        //moved to separate model - link through id key
+        category_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'category',
+                key: 'id'
+            }
         },
         //required field
         product_name: {

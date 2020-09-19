@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Store, Product } = require('../models')
+const { User, Store, Product, Category } = require('../models')
 const withAuth = require("../utils/auth");
 
 //redirect from / to home page
@@ -28,16 +28,14 @@ router.get('/signup', (req, res) => {
 });
 
 //edit product page
-router.get('/edit/:id',
-    withAuth,
-    (req, res) => {
-        Product.findOne({
+router.get('/edit/:id', withAuth, (req, res) => {
+     Product.findOne({
             where: {
                 id: req.params.id
             },
             attributes: [
                 'product_name',
-                'category',
+                'category_id',
                 'description',
                 'size',
                 'price',
@@ -46,7 +44,7 @@ router.get('/edit/:id',
         })
             .then(dbProductData => {
                 if (!dbProductData) {
-                    res.status(404).json({ message: 'No product found with this id' });
+                    res.status(404).json({ message: 'No information found.' });
                     return;
                 }
                 const product = dbProductData.get({ plain: true });

@@ -12,7 +12,7 @@ const showResults = async function (event) {
         if (queryString) {
             queryString = queryString + "&";
         }
-        queryString = queryString + "category=" + category;
+        queryString = queryString + "category_id=" + category;
     }
 
     let response = await fetch('/api/products/filtered?' + queryString);

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Product, Store, User } = require('../../models');
+const { Product, Store, User, Category } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -10,14 +10,23 @@ router.get('/', (req, res) => {
         attributes: [
             'id',
             'product_name',
-            'category',
+            'category_id',
             'price',
-            'rating'
+            'rating',
+            'user_id'
         ],
         include: [
             {
                 model: Store,
                 attributes: ['store_name']
+            },
+            {
+                model: Category,
+                attributes: ['category_name', 'user_id']
+            },
+            {
+                model: User,
+                attributes: ['id']
             }
         ]
     })
@@ -31,13 +40,13 @@ router.get('/', (req, res) => {
 //filter products by store and/or category
 router.get('/filtered', async (req, res) => {
     const store_id = req.query.store_id;
-    const category = req.query.category;
+    const category_id = req.query.category_id;
     const conditions = {};
     if (store_id) {
         conditions.store_id = store_id;
     }
-    if (category) {
-        conditions.category = category;
+    if (category_id) {
+        conditions.category_id = category_id;
     }
     const products = await Product.findAll({
         where: conditions,
@@ -57,7 +66,7 @@ router.get('/:id', (req, res) => {
             'id',
             'product_name',
             'description',
-            'category',
+            'category_id',
             'size',
             'price',
             'rating'
@@ -66,7 +75,11 @@ router.get('/:id', (req, res) => {
             {
                 model: Store,
                 attributes: ['store_name', 'city', 'state'],
-            }]
+            },
+        {
+            model: Category,
+            attributes: ['category_name']
+        }]
     })
         .then(dbProductData => {
             if (!dbProductData) {
@@ -87,7 +100,7 @@ router.post('/',
     (req, res) => {
         Product.create({
             product_name: req.body.product_name,
-            category: req.body.category,
+            category_id: req.body.category_id,
             description: req.body.description,
             price: req.body.price,
             size: req.body.size,
@@ -107,7 +120,7 @@ router.put('/:id', (req, res) => {
     Product.update(req.body, {
         where: {
             id: req.params.id,
-            user_id: req.session.userId
+            // user_id: req.session.userId
         }
     }
     )

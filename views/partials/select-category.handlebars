@@ -1,0 +1,7 @@
+<label for="category-id">Category</label> <a href='#add-category' data-rel="popup">Add a new category</a>
+        <select id="category-id" name="category-id">
+            <option value=" ">Select a category</option>
+            {{#each categories}}
+            <option value="{{id}}">{{category_name}}</option>
+            {{/each}}
+        </select>

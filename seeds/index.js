@@ -1,10 +1,11 @@
 
-const { Product, User, Store } = require('../models');
+const { Product, User, Store, Category } = require('../models');
 const sequelize = require("../config/connection")
 const bcrypt = require('bcrypt')
+
 const productData = [
     {
-        category: 'Coffee',
+        category_id: 3,
         product_name: 'Lavazza',
         description: 'whole beans',
         size: '1 lb',
@@ -14,7 +15,7 @@ const productData = [
         store_id: 1
     },
     {
-        category: 'Coffee',
+        category_id: 3,
         product_name: 'Starbucks',
         description: 'dark roast',
         size: '1 lb',
@@ -24,7 +25,7 @@ const productData = [
         store_id: 1
     },
     {
-        category: 'Coffee',
+        category_id: 3,
         product_name: 'Pitts',
         description: 'whole bean',
         size: '7oz',
@@ -34,7 +35,7 @@ const productData = [
         store_id: 2
     },
     {
-        category: 'Deli',
+        category_id: 2,
         product_name: 'Private Selection™ Old World Deli Hard Salami',
         description: 'Meat',
         size: '32 oz',
@@ -44,7 +45,7 @@ const productData = [
         store_id: 1
     },
     {
-        category: 'Deli',
+        category_id: 2,
         product_name: 'Private Selection™ Wildflower Honey Ham',
         description: 'Meat',
         size: '1 lb',
@@ -54,7 +55,7 @@ const productData = [
         store_id: 1
     },
     {
-        category: 'Deli',
+        category_id: 2,
         product_name: 'Boars Head Hickory Smoked Black Forest Turkey Breast',
         description: 'Turkey Breast',
         size: '1 lb',
@@ -64,7 +65,7 @@ const productData = [
         store_id: 1
     },
     {
-        category: 'Produce',
+        category_id: 1,
         product_name: 'Banana',
         description: 'Fruit',
         size: '1 lb',
@@ -74,7 +75,7 @@ const productData = [
         store_id: 1
     },
     {
-        category: 'Produce',
+        category_id: 1,
         product_name: 'Strawberries',
         description: 'Fruit',
         size: '1 lb',
@@ -84,7 +85,7 @@ const productData = [
         store_id: 1
     },
     {
-        category: 'Produce',
+        category_id: 1,
         product_name: 'Lettuce - Iceberg',
         description: 'Vegetable',
         size: '1 ct',
@@ -94,7 +95,7 @@ const productData = [
         store_id: 1
     },
     {
-        category: 'Produce',
+        category_id: 1,
         product_name: 'Kroger® Cut & Peeled Baby Carrots',
         description: 'Vegetable',
         size: '1 lb',
@@ -104,7 +105,7 @@ const productData = [
         store_id: 1
     },
     {
-        category: 'Produce',
+        category_id: 1,
         product_name: 'Red Bell Pepper',
         description: 'Vegetable',
         size: '1 ct',
@@ -114,7 +115,7 @@ const productData = [
         store_id: 1
     },
     {
-        category: 'Deli',
+        category_id: 2,
         product_name: 'Publix Deli Salami, Hard',
         description: 'Meat',
         size: '32 oz',
@@ -124,7 +125,7 @@ const productData = [
         store_id: 2
     },
     {
-        category: 'Deli',
+        category_id: 2,
         product_name: 'Boars Head Maple Glazed Honey Coat® Ham',
         description: 'Meat',
         size: '1 lb',
@@ -134,7 +135,7 @@ const productData = [
         store_id: 2
     },
     {
-        category: 'Deli',
+        category_id: 2,
         product_name: 'Publix Deli Smoked Turkey Breast',
         description: 'Meat',
         size: '1 lb',
@@ -145,6 +146,22 @@ const productData = [
     }
 
 ];
+
+const categoryData = [
+    {
+        category_name: 'Produce',
+        user_id: 1
+    },
+    {
+        category_name: 'Deli',
+        user_id: 1
+    },
+    {
+        category_name: 'Coffee',
+        user_id: 1
+    }
+];
+
 
 const userData = [
     {
@@ -185,6 +202,8 @@ const seedAll = async () => {
     await User.bulkCreate(userData);
     console.log('----------------');
     await Store.bulkCreate(storeData);
+    console.log('----------------');
+    await Category.bulkCreate(categoryData);
     console.log('----------------');
     await Product.bulkCreate(productData);
     console.log('--------------');
