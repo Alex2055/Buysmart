@@ -27,7 +27,7 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-//edit product page
+//render edit product page
 router.get('/edit/:id', withAuth, (req, res) => {
      Product.findOne({
             where: {
@@ -40,7 +40,11 @@ router.get('/edit/:id', withAuth, (req, res) => {
                 'size',
                 'price',
                 'rating'
-            ]
+            ],
+            include: {
+                model: Category,
+                attributes: ['id', 'category_name']
+            }
         })
             .then(dbProductData => {
                 if (!dbProductData) {
