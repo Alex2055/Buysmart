@@ -1,7 +1,6 @@
 
 const signupFormHandler = async function (event) {
   event.preventDefault();
-  showSpinner($(this));
   const email = document.querySelector("#email");
   const password = document.querySelector("#password");
   if (password.value === "" || email.value === ""){
@@ -9,6 +8,7 @@ const signupFormHandler = async function (event) {
     document.location.replace('/signin');
   }
   else{
+    showSpinner($(this));
   fetch("/api/users", {
     method: "post",
     body: JSON.stringify({

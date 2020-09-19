@@ -1,6 +1,6 @@
 
 const showResults = async function (event) {
-    showSpinner($(this));
+    // showSpinner($(this));
     let storeId = document.getElementById('storeNames').value;
     let category = document.getElementById('categoryNames').value;
     let queryString = '';

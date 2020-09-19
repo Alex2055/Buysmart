@@ -2,7 +2,11 @@ async function newFormHandler(event) {
     event.preventDefault();
 
     const category_name = document.querySelector('input[name="category-name"]').value;
-
+    if (category_name === '') {
+      window.alert('Please enter category name')
+    }
+    else{
+      showSpinner($(this));
     const response = await fetch('/api/categories', {
         method: 'POST',
         body: JSON.stringify({
@@ -22,5 +26,5 @@ async function newFormHandler(event) {
         alert(response.statusText);
       }
     }
-    
+  }
     document.querySelector('.add-category-form').addEventListener('submit', newFormHandler);  
