@@ -5,7 +5,6 @@ async function newFormHandler(event) {
     window.location.toString().split('/').length - 1];
 
   const product_name = document.querySelector('input[name="product-name"]').value;
-  const category_id = document.querySelector('select[name="category-id"]').value;
   const description = document.querySelector('input[name="description"]').value;
   const size = document.querySelector('input[name="size"]').value;
   const price = document.querySelector('input[name="price"]').value;
@@ -15,7 +14,6 @@ async function newFormHandler(event) {
     method: 'PUT',
     body: JSON.stringify({
       product_name,
-      category_id,
       description,
       size,
       price,

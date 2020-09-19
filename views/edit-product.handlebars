@@ -4,13 +4,6 @@
     <form class="edit-product-form">
         <label for="product-name">Product Name</label>
         <input type="text" id="product-name" name="product-name" value="{{product.product_name}}" />
-       {{!-- <label for="category-id">Category</label> <a href='#add-category' data-rel="popup">Add a new category</a>
-        <select id="category-id" name="category-id">
-            <option value=" ">Select a category</option>
-            {{#each categories}}
-            <option value="{{id}}">{{category_name}}</option>
-            {{/each}}
-        </select> --}}
         <label for="description">Description</label>
         <input type="text" id="description" name="description" value="{{product.description}}" />
         <label for="size">Size</label>
@@ -21,4 +14,8 @@
         <input type="number" id="rating" name="rating" value="{{product.rating}}" />
 
         <button type="submit" class="btn">Update</button>
+</form>
         <button onclick="location.href='/product/add'">Add Product</button>
+</section>
+
+<script src="/javascript/editProduct.js"></script>
