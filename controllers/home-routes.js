@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Store, Product } = require('../models')
+const { User, Store, Product, Category } = require('../models')
 const withAuth = require("../utils/auth");
 
 //redirect from / to home page
@@ -37,11 +37,17 @@ router.get('/edit/:id',
             },
             attributes: [
                 'product_name',
-                'category',
+                'category_id',
                 'description',
                 'size',
                 'price',
                 'rating'
+            ],
+            include: [
+                {
+                    model: Category,
+                    attributes: ['category_name']
+                }
             ]
         })
             .then(dbProductData => {

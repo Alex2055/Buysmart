@@ -1,6 +1,6 @@
 
 const router = require('express').Router();
-const { User, Product, Store } = require('../../models');
+const { User, Product, Store, Category } = require('../../models');
 
 //get all users
 router.get('/', (req, res) => {
@@ -27,11 +27,16 @@ router.get('/:id', (req, res) => {
             {
                 model: Product,
                 order: [['rating', 'DESC']],
-                attributes: ['product_name', 'category', 'size', 'price', 'rating'],
-                include: {
+                attributes: ['product_name', 'category_id', 'size', 'price', 'rating'],
+                include: [{
                     model: Store,
                     attributes: ['store_name', 'city', 'state', 'zip']
+                },
+                {
+                    model: Category,
+                    attributes: ['category_name']
                 }
+            ]
             },
             {
                 model: Store,

@@ -13,14 +13,12 @@
         <select id="categoryNames">
             <option value="">Select Category</option>
             {{#each categories}}
-            <option value="{{category}}">{{category}}</option>
+            <option value="{{id}}">{{category_name}}</option>
             {{/each}}
         </select>
     </fieldset>
-    {{!-- <h2 class="ui-bar-d">name/price/rank</h2> --}}
-    <table data-role="table" id="table-column-toggle" data-mode="columntoggle" class="ui-body-b ui-shadow table-stripe ui-responsive">
-       {{!-- class="ui-body-b ui-shadow table-stripe ui-responsive"> --}}
-        <thead>
+    <table data-role="table" id="table-column-toggle" class="ui-body-b ui-shadow table-stripe ui-responsive">
+       <thead>
             <tr class="ui-bar-d">
                 <th>Name</th>
                 <th>Price</th>

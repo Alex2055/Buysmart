@@ -2,7 +2,7 @@ async function newFormHandler(event) {
     event.preventDefault();
 
     const product_name = document.querySelector('input[name="product-name"]').value;
-    const category = document.querySelector('input[name="product-category"]').value;
+    const category_id = document.querySelector('select[name="category-id"]').value;
     const description = document.querySelector('input[name="description"]').value;
     const size = document.querySelector('input[name="size"]').value;
     const price = document.querySelector('input[name="price"]').value.toString();
@@ -13,7 +13,7 @@ async function newFormHandler(event) {
         method: 'POST',
         body: JSON.stringify({
           product_name,
-          category,
+          category_id,
           description,
           size,
           price,

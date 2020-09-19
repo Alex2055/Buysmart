@@ -20,8 +20,14 @@ router.get('/:id', withAuth, (req, res) => {
         },
         include: [{
             model: Product,
-            attributes: ['product_name', 'category', 'size', 'price', 'rating'],
-            order: [['rating', 'DESC']],  
+            attributes: ['product_name', 'category_id', 'size', 'price', 'rating'],
+            order: [['rating', 'DESC']],
+            include: [
+                {
+                    model: Category,
+                    attributes: ['category_name']
+                }
+            ]  
         }],
     })
     .then(dbStoreData => {
