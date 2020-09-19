@@ -27,7 +27,7 @@ async function newFormHandler(event) {
       
       if (response.ok) {
           console.log("Product added");
-          console.log(response);
+          console.log();
         document.location.replace('/product');
       } else {
           console.log("product not added");
