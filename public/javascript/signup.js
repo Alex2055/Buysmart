@@ -4,7 +4,11 @@ const signupFormHandler = async function (event) {
   showSpinner($(this));
   const email = document.querySelector("#email");
   const password = document.querySelector("#password");
-  
+  if (password.value === "" || email.value === ""){
+    window.alert('Some fields are empty. Please enter email and password')
+    document.location.replace('/signin');
+  }
+  else{
   fetch("/api/users", {
     method: "post",
     body: JSON.stringify({
@@ -22,7 +26,7 @@ const signupFormHandler = async function (event) {
       console.log(err)
     });
 };
-
+}
 document
   .querySelector("#signupSubmit")
   .addEventListener("click", signupFormHandler);
