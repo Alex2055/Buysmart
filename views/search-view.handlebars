@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="product-body">
-
+    <button onclick="location.href='/product/add'">Add Product</button>
     <fieldset data-role="controlgroup" data-type="vertical">
         <label for="storeNames">Stores</label>
         <select id="storeNames">
@@ -17,8 +17,9 @@
             {{/each}}
         </select>
     </fieldset>
-    <table data-role="table" id="table-column-toggle" class="ui-body-b ui-shadow table-stripe ui-responsive">
-       <thead>
+    <table data-role="table" id="table-column-toggle" data-mode="columntoggle"
+        class="ui-body-b ui-shadow table-stripe ui-responsive">
+        <thead>
             <tr class="ui-bar-d">
                 <th>Name</th>
                 <th>Price</th>

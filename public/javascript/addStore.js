@@ -1,6 +1,6 @@
 async function newFormHandler(event) {
     event.preventDefault();
-
+    showSpinner($(this));
     const store_name = document.querySelector('input[name="store-name"]').value;
     const city = document.querySelector('input[name="city"]').value;
     const state = document.querySelector('input[name="state"]').value;

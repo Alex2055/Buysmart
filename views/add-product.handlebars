@@ -6,7 +6,6 @@
         <select id="store-id" name="store-id">
             <option value=" ">Select a store</option>
             {{#each stores}}
-            {{!-- {{> store-options stores}} --}}
             <option value="{{id}}">{{store_name}}</option>
             {{/each}}
         </select>
@@ -54,6 +53,7 @@
              <button type="submit" class="btn" id="add-category-btn">Add Category</button>
             </form>
             </div>
+    <button onclick="location.href='/product'">Search/View</button>
 </section>
 
 <script src='/javascript/addProduct.js'></script>

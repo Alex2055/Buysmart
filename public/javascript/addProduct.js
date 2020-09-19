@@ -1,6 +1,6 @@
 async function newFormHandler(event) {
     event.preventDefault();
-
+    showSpinner($(this));
     const product_name = document.querySelector('input[name="product-name"]').value;
     const category_id = document.querySelector('select[name="category-id"]').value;
     const description = document.querySelector('input[name="description"]').value;
