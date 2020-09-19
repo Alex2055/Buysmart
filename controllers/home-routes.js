@@ -28,10 +28,8 @@ router.get('/signup', (req, res) => {
 });
 
 //edit product page
-router.get('/edit/:id',
-    withAuth,
-    (req, res) => {
-        Product.findOne({
+router.get('/edit/:id', withAuth, (req, res) => {
+     Product.findOne({
             where: {
                 id: req.params.id
             },
@@ -42,17 +40,11 @@ router.get('/edit/:id',
                 'size',
                 'price',
                 'rating'
-            ],
-            include: [
-                {
-                    model: Category,
-                    attributes: ['category_name']
-                }
             ]
         })
             .then(dbProductData => {
                 if (!dbProductData) {
-                    res.status(404).json({ message: 'No product found with this id' });
+                    res.status(404).json({ message: 'No information found.' });
                     return;
                 }
                 const product = dbProductData.get({ plain: true });

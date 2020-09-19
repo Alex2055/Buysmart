@@ -120,7 +120,7 @@ router.put('/:id', (req, res) => {
     Product.update(req.body, {
         where: {
             id: req.params.id,
-            user_id: req.session.userId
+            // user_id: req.session.userId
         }
     }
     )

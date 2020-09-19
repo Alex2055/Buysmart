@@ -2,7 +2,7 @@
 {{!-- <div class="product-body" onload="addStars"> --}}
 <div class=" product-body " onload="addStars">
     <h3 class="ui-bar ui-bar-a ui-corner-all">{{product_name}}
-        {{category}}
+        {{category.category_name}}
         <div>
             {{#each stars}}
             <span class="fa fa-star {{#if this}} checked {{/if}}"></span>
