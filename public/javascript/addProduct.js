@@ -1,6 +1,6 @@
 async function newFormHandler(event) {
     event.preventDefault();
-
+    showSpinner($(this));
     const product_name = document.querySelector('input[name="product-name"]').value;
     const category = document.querySelector('input[name="product-category"]').value;
     const description = document.querySelector('input[name="description"]').value;
@@ -27,7 +27,7 @@ async function newFormHandler(event) {
       
       if (response.ok) {
           console.log("Product added");
-          console.log();
+          console.log(response);
         document.location.replace('/product');
       } else {
           console.log("product not added");

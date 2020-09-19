@@ -1,6 +1,6 @@
 async function newFormHandler(event) {
   event.preventDefault();
-
+  showSpinner($(this));
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1];
 

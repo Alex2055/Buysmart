@@ -1,5 +1,5 @@
 function logout() {
-
+  showSpinner($(this));
   fetch("/api/users/signout", {
     method: "post",
     headers: { "Content-Type": "application/json" }
