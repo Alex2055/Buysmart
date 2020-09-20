@@ -11,8 +11,6 @@ header {
     padding-bottom: 5%;
 }
 
-
-
 form label {
     display: block;
 }
@@ -53,14 +51,14 @@ a {
 }
 
 .homepage {
-    padding-top: 10%;
+    padding-top: 15vw;
 }
 
 .add-product, .edit-product {
     padding: 5%;
 }
 
-/* add product page style */
+/* home page buttons style */
 
 #addProduct {
     height: 20vw;
@@ -106,6 +104,11 @@ a {
     position: relative;
     margin-left: 0;
 }
+
+#sighninError{
+visibility: hidden;
+}
+
 .signoutCover{
     position: fixed;
     right: 1px;
@@ -168,3 +171,4 @@ a {
     }
     
   }
+  

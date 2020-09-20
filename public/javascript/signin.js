@@ -4,8 +4,8 @@ const loginFormHandler = async function (event) {
   const email = document.querySelector("#email");
   const password = document.querySelector("#password");
   if (password.value === "" || email.value === ""){
-    window.alert('Some fields are empty. Please enter email and password')
-    document.location.replace('/signin');
+    document.getElementById("sighninError").style.visibility = 'visible';
+    
   }
   else{
     showSpinner($(this));
