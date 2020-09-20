@@ -37,4 +37,4 @@ https://fast-bastion-33726.herokuapp.com/
 * Version 1 is an MVP with basic functionality. 
 
 ## Screenshots
-![Overview of Buy Smart](/buysmart/public/stylesheets/images/screenshot.jpg)
+![Overview of Buy Smart](public/stylesheets/images/screenshot.jpg)
