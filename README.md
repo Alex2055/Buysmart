@@ -3,7 +3,7 @@
 <a href=""><img src="https://img.shields.io/badge/CSS-38%25-blueviolet" alt="" style="max-width:15%;" width="55"></a>
 <a href=""><img src="https://img.shields.io/badge/Handlebars-11%25-orange" alt="" style="max-width:35%;" width="80"></a>
 ## About
-An app that allows the user to search for the best price and top rated items based on several user's selections and input.
+BuySmart is an app that helps shoppers keep essential information at their fingertips. Shoppers can add their favorite products, including a category, description, size and price, to the app. They can link the product to the appropriate store, and access this information through a mobile-responive framework on their phone or tablet. 
 ## Technology
 This page was built with the following technologies:
 ```bash
@@ -26,9 +26,9 @@ This page was built with the following technologies:
 ## Description
  The User will be able to search for the best price from multiple grocery stores. They will also have the ability to input and rank their favorite items. 
  ## Contributors
- * Alexander Vasilkov
- * Tracey Jackson
- * Jena Holtzclaw
+ * [Alexander Vasilkov](https://github.com/Alex2055)
+ * [Tracey Jackson](https://github.com/cjacktwil)
+ * [Jena Holtzclaw](https://github.com/jholtzclaw)
 
 ## Website
 https://fast-bastion-33726.herokuapp.com/
